@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 import uuid
 from icalendar import Calendar
 import openpyxl
-from config import SEMESTER_START_DATETIME
+from config import SEMESTER_START_DATETIME, BASE_URL
 
 # 导入现有的课程表获取模块
 # 尝试导入course_json_out模块，如果不存在则使用模拟模块
@@ -63,7 +63,7 @@ app = Flask(__name__)
 app.secret_key = 'your_secret_key_here'  # 用于Flash消息
 
 # 教务系统URL配置
-BASE_URL = "https://jxw.sylu.edu.cn"  # 替换为实际的教务系统URL
+BASE_URL = BASE_URL
 
 # 目录配置
 JSON_FOLDER = "json_input"

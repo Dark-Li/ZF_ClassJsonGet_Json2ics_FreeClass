@@ -46,11 +46,14 @@ ZF_ClassJsonGet_Json2ics_FreeClass/
 
 ## 安装部署
 
+建议使用Docker部署，在线获取课表功能正常。
+本地运行时在线获取课表功能会提示接口失效，可自行修复。
+
 ### 方法一：本地运行
 
 1. **克隆项目**
    ```bash
-   git clone <项目地址>
+   git clone https://github.com/Dark-Li/ZF_ClassJsonGet_Json2ics_FreeClass.git
    cd ZF_ClassJsonGet_Json2ics_FreeClass
    ```
 
@@ -68,12 +71,23 @@ ZF_ClassJsonGet_Json2ics_FreeClass/
    pip install -r requirements.txt
    ```
 
-5. **运行应用**
+5. **参数配置**
+   项目的配置文件为 `config.py`，主要配置项：
+   ```python
+   import datetime
+
+   SEMESTER_START_DATE = datetime.date(2026, 3, 2)  # 学期第一周周一（date类型）
+   SEMESTER_START_DATETIME = datetime.datetime(2026, 3, 2, 0, 0, 0)  # 学期第一周周一（datetime类型）
+   BASE_URL = 'https://jxw.sylu.edu.cn'  # 教务系统URL
+   ```
+   每学期修改学期开始日期，只需要修改 `config.py` 文件中的日期即可。
+
+6. **运行应用**
    ```bash
    python app.py
    ```
 
-6. **访问应用**
+7. **访问应用**
    打开浏览器，访问 `http://localhost:5000`
 
 ### 方法二：Docker部署
@@ -83,7 +97,7 @@ ZF_ClassJsonGet_Json2ics_FreeClass/
 
 2. **克隆项目**
    ```bash
-   git clone <项目地址>
+   git clone https://github.com/Dark-Li/ZF_ClassJsonGet_Json2ics_FreeClass.git
    cd ZF_ClassJsonGet_Json2ics_FreeClass
    ```
 
@@ -127,16 +141,18 @@ import datetime
 
 SEMESTER_START_DATE = datetime.date(2026, 3, 2)  # 学期第一周周一（date类型）
 SEMESTER_START_DATETIME = datetime.datetime(2026, 3, 2, 0, 0, 0)  # 学期第一周周一（datetime类型）
+BASE_URL = 'https://jxw.sylu.edu.cn'  # 教务系统URL
 ```
 
 如果需要修改学期开始日期，只需要修改 `config.py` 文件中的日期即可。
 
 ## 注意事项
 
-1. 本系统需要从教务系统获取课程表，因此需要有效的学号和密码
+1. 本系统需要从正方教务系统获取课程表，因此需要有效的学号和密码
 2. 生成的ICS文件可以导入到各种日历应用（如Google日历、Outlook等）
 3. 空课程查询功能需要先获取课程表并转换为ICS格式
 4. 首次使用时，需要先获取课程表，然后转换为ICS格式，才能使用空课程查询和统计功能
+5. 本系统理论支持所有正方教务系统。
 
 ## 项目维护
 
@@ -150,4 +166,4 @@ SEMESTER_START_DATETIME = datetime.datetime(2026, 3, 2, 0, 0, 0)  # 学期第一
 
 ## 联系方式
 
-如有问题或建议，请联系项目维护者。
+如有问题或建议，请提交Issue或Pull Request。

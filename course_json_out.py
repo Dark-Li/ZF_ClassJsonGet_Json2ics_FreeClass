@@ -9,6 +9,7 @@ import sys
 import unicodedata
 import urllib3
 from urllib.parse import urljoin
+from config import BASE_URL
 
 import requests
 import rsa
@@ -589,7 +590,7 @@ if __name__ == "__main__":
     with open("account.json", "r", encoding="utf-8") as f:
         accounts = json.load(f)
 
-    base_url = "https://jxw.sylu.edu.cn"  # 教务系统 URL
+    base_url = BASE_URL  # 教务系统 URL
     folder = "json_input"
     os.makedirs(folder, exist_ok=True)
 

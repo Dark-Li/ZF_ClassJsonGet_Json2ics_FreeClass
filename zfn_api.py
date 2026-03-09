@@ -1451,8 +1451,8 @@ if __name__ == "__main__":
     import os
 
     base_url = "https://jxw.sylu.edu.cn/xtgl/login_slogin.html" # 教务系统URL
-    sid = "2303130112"  # 学号
-    password = "N.k5201314"  # 密码
+    sid = ""  # 学号
+    password = ""  # 密码
     lgn_cookies = {
         # "insert_cookie": "",
         # "route": "",
