@@ -167,3 +167,6 @@ BASE_URL = 'https://jxw.sylu.edu.cn'  # 教务系统URL
 ## 联系方式
 
 如有问题或建议，请提交Issue或Pull Request。
+
+## 相关项目
+新正方教务系统API https://github.com/openschoolcn/zfn_api
