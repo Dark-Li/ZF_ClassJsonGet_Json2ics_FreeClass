@@ -57,7 +57,7 @@ def generate_ics_from_json(json_path, ics_path):
     ics_content = [
         "BEGIN:VCALENDAR",
         "VERSION:2.0",
-        "PRODID:-//Kagg886//ICS Generator//EN",
+        "PRODID:-//GYSL//Ender//ZF-Class-ICS//EN",
         "CALSCALE:GREGORIAN"
     ]
 
