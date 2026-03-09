@@ -1,0 +1,427 @@
+{
+    "code": 1000,
+    "msg": "获取课表成功",
+    "data": {
+        "sid": "2303130112",
+        "name": "李传东",
+        "year": 2025,
+        "term": 2,
+        "count": 13,
+        "courses": [
+            {
+                "course_id": "210313036",
+                "title": "云计算技术",
+                "teacher": "王国旭",
+                "class_name": "(2025-2026-2)-210313036-01",
+                "credit": "2.5",
+                "weekday": 1,
+                "time": "13:00~14:40",
+                "sessions": "5-6节",
+                "list_sessions": [
+                    5,
+                    6
+                ],
+                "weeks": "1-5周,7-9周,11-12周",
+                "list_weeks": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    7,
+                    8,
+                    9,
+                    11,
+                    12
+                ],
+                "evaluation_mode": "考试",
+                "campus": "本部",
+                "place": "XX-228",
+                "hours_composition": "讲课学时:40",
+                "weekly_hours": 4,
+                "total_hours": 40
+            },
+            {
+                "course_id": "210313033",
+                "title": "物联网系统设计",
+                "teacher": "周越",
+                "class_name": "(2025-2026-2)-210313033-01",
+                "credit": "2.5",
+                "weekday": 1,
+                "time": "14:50~16:30",
+                "sessions": "7-8节",
+                "list_sessions": [
+                    7,
+                    8
+                ],
+                "weeks": "1-5周,7-9周,11-12周",
+                "list_weeks": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    7,
+                    8,
+                    9,
+                    11,
+                    12
+                ],
+                "evaluation_mode": "考试",
+                "campus": "本部",
+                "place": "XX-427",
+                "hours_composition": "讲课学时:32,实验学时:8",
+                "weekly_hours": 4,
+                "total_hours": 40
+            },
+            {
+                "course_id": "210313048",
+                "title": "区块链技术综述",
+                "teacher": "王国旭",
+                "class_name": "(2025-2026-2)-210313048-01",
+                "credit": "1.0",
+                "weekday": 1,
+                "time": "16:40~18:20",
+                "sessions": "9-10节",
+                "list_sessions": [
+                    9,
+                    10
+                ],
+                "weeks": "1-4周",
+                "list_weeks": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "XX-227",
+                "hours_composition": "讲课学时:16",
+                "weekly_hours": 4,
+                "total_hours": 16
+            },
+            {
+                "course_id": "210313057",
+                "title": "软件工程S",
+                "teacher": "姜月秋,吴嘉轩",
+                "class_name": "(2025-2026-2)-210313057-01",
+                "credit": "2.0",
+                "weekday": 2,
+                "time": "8:00~9:40",
+                "sessions": "1-2节",
+                "list_sessions": [
+                    1,
+                    2
+                ],
+                "weeks": "1-8周",
+                "list_weeks": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "XX-227",
+                "hours_composition": "讲课学时:24,实验学时:8",
+                "weekly_hours": 4,
+                "total_hours": 32
+            },
+            {
+                "course_id": "210313035",
+                "title": "网络管理",
+                "teacher": "徐志勇",
+                "class_name": "(2025-2026-2)-210313035-01",
+                "credit": "2.0",
+                "weekday": 2,
+                "time": "13:00~14:40",
+                "sessions": "5-6节",
+                "list_sessions": [
+                    5,
+                    6
+                ],
+                "weeks": "1-8周",
+                "list_weeks": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "evaluation_mode": "考试",
+                "campus": "本部",
+                "place": "XX-228",
+                "hours_composition": "讲课学时:24,实验学时:8",
+                "weekly_hours": 4,
+                "total_hours": 32
+            },
+            {
+                "course_id": "210313043",
+                "title": "Linux操作系统应用",
+                "teacher": "徐志勇",
+                "class_name": "(2025-2026-2)-210313043-01",
+                "credit": "2.0",
+                "weekday": 2,
+                "time": "14:50~16:30",
+                "sessions": "7-8节",
+                "list_sessions": [
+                    7,
+                    8
+                ],
+                "weeks": "1-8周",
+                "list_weeks": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "XX-228",
+                "hours_composition": "讲课学时:24,实验学时:8",
+                "weekly_hours": 4,
+                "total_hours": 32
+            },
+            {
+                "course_id": "210313033",
+                "title": "物联网系统设计",
+                "teacher": "周越",
+                "class_name": "(2025-2026-2)-210313033-01",
+                "credit": "2.5",
+                "weekday": 3,
+                "time": "8:00~9:40",
+                "sessions": "1-2节",
+                "list_sessions": [
+                    1,
+                    2
+                ],
+                "weeks": "1-10周",
+                "list_weeks": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10
+                ],
+                "evaluation_mode": "考试",
+                "campus": "本部",
+                "place": "XX-229",
+                "hours_composition": "讲课学时:32,实验学时:8",
+                "weekly_hours": 4,
+                "total_hours": 40
+            },
+            {
+                "course_id": "210313057",
+                "title": "软件工程S",
+                "teacher": "吴嘉轩,姜月秋",
+                "class_name": "(2025-2026-2)-210313057-01",
+                "credit": "2.0",
+                "weekday": 4,
+                "time": "8:00~9:40",
+                "sessions": "1-2节",
+                "list_sessions": [
+                    1,
+                    2
+                ],
+                "weeks": "1-8周",
+                "list_weeks": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "XX-227",
+                "hours_composition": "讲课学时:24,实验学时:8",
+                "weekly_hours": 4,
+                "total_hours": 32
+            },
+            {
+                "course_id": "210313036",
+                "title": "云计算技术",
+                "teacher": "王国旭",
+                "class_name": "(2025-2026-2)-210313036-01",
+                "credit": "2.5",
+                "weekday": 4,
+                "time": "14:50~16:30",
+                "sessions": "7-8节",
+                "list_sessions": [
+                    7,
+                    8
+                ],
+                "weeks": "1-10周",
+                "list_weeks": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10
+                ],
+                "evaluation_mode": "考试",
+                "campus": "本部",
+                "place": "XX-428",
+                "hours_composition": "讲课学时:40",
+                "weekly_hours": 4,
+                "total_hours": 40
+            },
+            {
+                "course_id": "210313048",
+                "title": "区块链技术综述",
+                "teacher": "王国旭",
+                "class_name": "(2025-2026-2)-210313048-01",
+                "credit": "1.0",
+                "weekday": 4,
+                "time": "16:40~18:20",
+                "sessions": "9-10节",
+                "list_sessions": [
+                    9,
+                    10
+                ],
+                "weeks": "1-4周",
+                "list_weeks": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "XX-228",
+                "hours_composition": "讲课学时:16",
+                "weekly_hours": 4,
+                "total_hours": 16
+            },
+            {
+                "course_id": "210313035",
+                "title": "网络管理",
+                "teacher": "徐志勇",
+                "class_name": "(2025-2026-2)-210313035-01",
+                "credit": "2.0",
+                "weekday": 5,
+                "time": "13:00~14:40",
+                "sessions": "5-6节",
+                "list_sessions": [
+                    5,
+                    6
+                ],
+                "weeks": "1-8周",
+                "list_weeks": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "evaluation_mode": "考试",
+                "campus": "本部",
+                "place": "XX-228",
+                "hours_composition": "讲课学时:24,实验学时:8",
+                "weekly_hours": 4,
+                "total_hours": 32
+            },
+            {
+                "course_id": "210313043",
+                "title": "Linux操作系统应用",
+                "teacher": "徐志勇",
+                "class_name": "(2025-2026-2)-210313043-01",
+                "credit": "2.0",
+                "weekday": 5,
+                "time": "14:50~16:30",
+                "sessions": "7-8节",
+                "list_sessions": [
+                    7,
+                    8
+                ],
+                "weeks": "1-8周",
+                "list_weeks": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "XX-228",
+                "hours_composition": "讲课学时:24,实验学时:8",
+                "weekly_hours": 4,
+                "total_hours": 32
+            },
+            {
+                "course_id": "215500040",
+                "title": "大学生职业发展与创业就业指导",
+                "teacher": "王连生",
+                "class_name": "(2025-2026-2)-215500040-30",
+                "credit": "1.5",
+                "weekday": 5,
+                "time": "16:40~18:20",
+                "sessions": "9-10节",
+                "list_sessions": [
+                    9,
+                    10
+                ],
+                "weeks": "1-8周,10-13周",
+                "list_weeks": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    10,
+                    11,
+                    12,
+                    13
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "A-326",
+                "hours_composition": "讲课学时:16,实验学时:8",
+                "weekly_hours": 2,
+                "total_hours": 24
+            }
+        ],
+        "extra_courses": [
+            "生产实习■关启学,周越(共2周)/17-18周/无",
+            "形势与政策6★迟昊婷(共2周)/17-18周/无",
+            "网络设计与管理综合实训■徐志勇,苑擎飏(共1周)/16周/无",
+            "网络应用软件开发实训Ⅳ■王国旭(共1周)/15周/无",
+            "网络嵌入式应用开发实训Ⅱ■王海涛(共1周)/14周/无"
+        ]
+    }
+}

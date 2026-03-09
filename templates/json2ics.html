@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课程表转换与统计</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+        
+        .actions {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+            justify-content: center;
+        }
+        
+        button {
+            padding: 12px 24px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        h2 {
+            color: #3498db;
+            margin-bottom: 20px;
+            font-size: 18px;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+        
+        .file-list {
+            background: #f9f9f9;
+            border-radius: 4px;
+            padding: 20px;
+        }
+        
+        .file-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .file-item:last-child {
+            border-bottom: none;
+        }
+        
+        .file-item a {
+            color: #3498db;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .file-item a:hover {
+            text-decoration: underline;
+        }
+        
+        .flash-message {
+            margin-bottom: 20px;
+            padding: 12px;
+            border-radius: 4px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .flash-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .flash-error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+            color: #3498db;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>课程表转换与统计</h1>
+        
+        <!-- 消息显示区域 -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-message flash-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <!-- 操作按钮 -->
+        <div class="actions">
+            <form method="POST" action="{{ url_for('convert_json2ics') }}">
+                <button type="submit">将JSON转换为ICS</button>
+            </form>
+            <form method="POST" action="{{ url_for('generate_empty_course_stat') }}">
+                <button type="submit">生成空课程统计表</button>
+            </form>
+        </div>
+        
+        <!-- JSON文件列表 -->
+        <div class="section">
+            <h2>JSON文件列表</h2>
+            <div class="file-list">
+                {% if json_files %}
+                    {% for file in json_files %}
+                        <div class="file-item">
+                            <span>{{ file }}</span>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>暂无JSON文件</p>
+                {% endif %}
+            </div>
+        </div>
+        
+        <!-- ICS文件列表 -->
+        <div class="section">
+            <h2>ICS文件列表</h2>
+            <div class="file-list">
+                {% if ics_files %}
+                    {% for file in ics_files %}
+                        <div class="file-item">
+                            <span>{{ file }}</span>
+                            <a href="{{ url_for('download_file', folder='ics', filename=file) }}">下载</a>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>暂无ICS文件</p>
+                {% endif %}
+            </div>
+        </div>
+        
+        <!-- Excel文件列表 -->
+        <div class="section">
+            <h2>空课程统计表</h2>
+            <div class="file-list">
+                {% if excel_files %}
+                    {% for file in excel_files %}
+                        <div class="file-item">
+                            <span>{{ file }}</span>
+                            <a href="{{ url_for('download_file', folder='excel', filename=file) }}">下载</a>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>暂无统计表格</p>
+                {% endif %}
+            </div>
+        </div>
+        
+        <a href="{{ url_for('index') }}" class="back-link">返回主页面</a>
+    </div>
+</body>
+</html>

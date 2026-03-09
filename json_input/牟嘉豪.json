@@ -1,0 +1,807 @@
+{
+    "code": 1000,
+    "msg": "获取课表成功",
+    "data": {
+        "sid": "2310080109",
+        "name": "牟嘉豪",
+        "year": 2025,
+        "term": 2,
+        "count": 29,
+        "courses": [
+            {
+                "course_id": "211008053",
+                "title": "综合虚拟产品设计1",
+                "teacher": "简增强",
+                "class_name": "(2025-2026-2)-211008053-01",
+                "credit": "2.0",
+                "weekday": 1,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "1-2周",
+                "list_weeks": [
+                    1,
+                    2
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "研创中心A213",
+                "hours_composition": "讲课学时:16,上机学时:16",
+                "weekly_hours": 8,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211008054",
+                "title": "综合虚拟产品设计2",
+                "teacher": "简增强",
+                "class_name": "(2025-2026-2)-211008054-01",
+                "credit": "2.0",
+                "weekday": 1,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "3-4周",
+                "list_weeks": [
+                    3,
+                    4
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "研创中心A213",
+                "hours_composition": "讲课学时:16,上机学时:16",
+                "weekly_hours": 8,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211008047",
+                "title": "国防教育产品制作",
+                "teacher": "黄海",
+                "class_name": "(2025-2026-2)-211008047-01",
+                "credit": "2.0",
+                "weekday": 1,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "5周",
+                "list_weeks": [
+                    5
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "研创中心A213",
+                "hours_composition": "讲课学时:16,上机学时:16",
+                "weekly_hours": 8,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211008048",
+                "title": "科普类虚拟教学设计",
+                "teacher": "黄海",
+                "class_name": "(2025-2026-2)-211008048-01",
+                "credit": "2.0",
+                "weekday": 1,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "7-8周",
+                "list_weeks": [
+                    7,
+                    8
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "研创中心A213",
+                "hours_composition": "讲课学时:16,实验学时:16",
+                "weekly_hours": 8,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211008045",
+                "title": "虚拟现实应用开发",
+                "teacher": "李营",
+                "class_name": "(2025-2026-2)-211008045-01",
+                "credit": "2.0",
+                "weekday": 1,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "11-12周",
+                "list_weeks": [
+                    11,
+                    12
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "研创中心A213",
+                "hours_composition": "讲课学时:32",
+                "weekly_hours": 16,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211008044",
+                "title": "专题设计",
+                "teacher": "杨硕",
+                "class_name": "(2025-2026-2)-211008044-01",
+                "credit": "3.0",
+                "weekday": 1,
+                "time": "13:00~16:30",
+                "sessions": "5-8节",
+                "list_sessions": [
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "13-16周",
+                "list_weeks": [
+                    13,
+                    14,
+                    15,
+                    16
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "研创中心A213",
+                "hours_composition": "讲课学时:48",
+                "weekly_hours": 16,
+                "total_hours": 48
+            },
+            {
+                "course_id": "211008044",
+                "title": "专题设计",
+                "teacher": "杨硕",
+                "class_name": "(2025-2026-2)-211008044-01",
+                "credit": "3.0",
+                "weekday": 2,
+                "time": "10:00~16:30",
+                "sessions": "3-8节",
+                "list_sessions": [
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "16周",
+                "list_weeks": [
+                    16
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "研创中心A213",
+                "hours_composition": "讲课学时:48",
+                "weekly_hours": 16,
+                "total_hours": 48
+            },
+            {
+                "course_id": "211008053",
+                "title": "综合虚拟产品设计1",
+                "teacher": "简增强",
+                "class_name": "(2025-2026-2)-211008053-01",
+                "credit": "2.0",
+                "weekday": 2,
+                "time": "13:00~16:30",
+                "sessions": "5-8节",
+                "list_sessions": [
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "1-2周",
+                "list_weeks": [
+                    1,
+                    2
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "研创中心A213",
+                "hours_composition": "讲课学时:16,上机学时:16",
+                "weekly_hours": 8,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211008054",
+                "title": "综合虚拟产品设计2",
+                "teacher": "简增强",
+                "class_name": "(2025-2026-2)-211008054-01",
+                "credit": "2.0",
+                "weekday": 2,
+                "time": "13:00~16:30",
+                "sessions": "5-8节",
+                "list_sessions": [
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "3-4周",
+                "list_weeks": [
+                    3,
+                    4
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "研创中心A213",
+                "hours_composition": "讲课学时:16,上机学时:16",
+                "weekly_hours": 8,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211008047",
+                "title": "国防教育产品制作",
+                "teacher": "黄海",
+                "class_name": "(2025-2026-2)-211008047-01",
+                "credit": "2.0",
+                "weekday": 2,
+                "time": "13:00~16:30",
+                "sessions": "5-8节",
+                "list_sessions": [
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "5-6周",
+                "list_weeks": [
+                    5,
+                    6
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "研创中心A213",
+                "hours_composition": "讲课学时:16,上机学时:16",
+                "weekly_hours": 8,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211008048",
+                "title": "科普类虚拟教学设计",
+                "teacher": "黄海",
+                "class_name": "(2025-2026-2)-211008048-01",
+                "credit": "2.0",
+                "weekday": 2,
+                "time": "13:00~16:30",
+                "sessions": "5-8节",
+                "list_sessions": [
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "7-8周",
+                "list_weeks": [
+                    7,
+                    8
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "研创中心A213",
+                "hours_composition": "讲课学时:16,实验学时:16",
+                "weekly_hours": 8,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211008045",
+                "title": "虚拟现实应用开发",
+                "teacher": "李营",
+                "class_name": "(2025-2026-2)-211008045-01",
+                "credit": "2.0",
+                "weekday": 2,
+                "time": "13:00~16:30",
+                "sessions": "5-8节",
+                "list_sessions": [
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "11-12周",
+                "list_weeks": [
+                    11,
+                    12
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "研创中心A213",
+                "hours_composition": "讲课学时:32",
+                "weekly_hours": 16,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211008044",
+                "title": "专题设计",
+                "teacher": "杨硕",
+                "class_name": "(2025-2026-2)-211008044-01",
+                "credit": "3.0",
+                "weekday": 2,
+                "time": "13:00~16:30",
+                "sessions": "5-8节",
+                "list_sessions": [
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "15周",
+                "list_weeks": [
+                    15
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "研创中心A213",
+                "hours_composition": "讲课学时:48",
+                "weekly_hours": 16,
+                "total_hours": 48
+            },
+            {
+                "course_id": "211008053",
+                "title": "综合虚拟产品设计1",
+                "teacher": "简增强",
+                "class_name": "(2025-2026-2)-211008053-01",
+                "credit": "2.0",
+                "weekday": 3,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "1-2周",
+                "list_weeks": [
+                    1,
+                    2
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "研创中心A213",
+                "hours_composition": "讲课学时:16,上机学时:16",
+                "weekly_hours": 8,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211008054",
+                "title": "综合虚拟产品设计2",
+                "teacher": "简增强",
+                "class_name": "(2025-2026-2)-211008054-01",
+                "credit": "2.0",
+                "weekday": 3,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "3-4周",
+                "list_weeks": [
+                    3,
+                    4
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "研创中心A213",
+                "hours_composition": "讲课学时:16,上机学时:16",
+                "weekly_hours": 8,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211008047",
+                "title": "国防教育产品制作",
+                "teacher": "黄海",
+                "class_name": "(2025-2026-2)-211008047-01",
+                "credit": "2.0",
+                "weekday": 3,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "5-6周",
+                "list_weeks": [
+                    5,
+                    6
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "研创中心A213",
+                "hours_composition": "讲课学时:16,上机学时:16",
+                "weekly_hours": 8,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211008048",
+                "title": "科普类虚拟教学设计",
+                "teacher": "黄海",
+                "class_name": "(2025-2026-2)-211008048-01",
+                "credit": "2.0",
+                "weekday": 3,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "7-8周",
+                "list_weeks": [
+                    7,
+                    8
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "研创中心A213",
+                "hours_composition": "讲课学时:16,实验学时:16",
+                "weekly_hours": 8,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211008044",
+                "title": "专题设计",
+                "teacher": "杨硕",
+                "class_name": "(2025-2026-2)-211008044-01",
+                "credit": "3.0",
+                "weekday": 3,
+                "time": "10:00~16:30",
+                "sessions": "3-8节",
+                "list_sessions": [
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "16周",
+                "list_weeks": [
+                    16
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "研创中心A213",
+                "hours_composition": "讲课学时:48",
+                "weekly_hours": 16,
+                "total_hours": 48
+            },
+            {
+                "course_id": "211008044",
+                "title": "专题设计",
+                "teacher": "杨硕",
+                "class_name": "(2025-2026-2)-211008044-01",
+                "credit": "3.0",
+                "weekday": 3,
+                "time": "13:00~16:30",
+                "sessions": "5-8节",
+                "list_sessions": [
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "15周",
+                "list_weeks": [
+                    15
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "研创中心A213",
+                "hours_composition": "讲课学时:48",
+                "weekly_hours": 16,
+                "total_hours": 48
+            },
+            {
+                "course_id": "215500040",
+                "title": "大学生职业发展与创业就业指导",
+                "teacher": "臧欣慈",
+                "class_name": "(2025-2026-2)-215500040-01",
+                "credit": "1.5",
+                "weekday": 3,
+                "time": "14:50~16:30",
+                "sessions": "7-8节",
+                "list_sessions": [
+                    7,
+                    8
+                ],
+                "weeks": "1-6周",
+                "list_weeks": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "CLA318",
+                "hours_composition": "讲课学时:16,实验学时:8",
+                "weekly_hours": 2,
+                "total_hours": 24
+            },
+            {
+                "course_id": "215500040",
+                "title": "大学生职业发展与创业就业指导",
+                "teacher": "李营",
+                "class_name": "(2025-2026-2)-215500040-01",
+                "credit": "1.5",
+                "weekday": 3,
+                "time": "14:50~16:30",
+                "sessions": "7-8节",
+                "list_sessions": [
+                    7,
+                    8
+                ],
+                "weeks": "7-12周",
+                "list_weeks": [
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "CLA318",
+                "hours_composition": "讲课学时:16,实验学时:8",
+                "weekly_hours": 2,
+                "total_hours": 24
+            },
+            {
+                "course_id": "211008047",
+                "title": "国防教育产品制作",
+                "teacher": "黄海",
+                "class_name": "(2025-2026-2)-211008047-01",
+                "credit": "2.0",
+                "weekday": 4,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "6周",
+                "list_weeks": [
+                    6
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "研创中心A213",
+                "hours_composition": "讲课学时:16,上机学时:16",
+                "weekly_hours": 8,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211008044",
+                "title": "专题设计",
+                "teacher": "杨硕",
+                "class_name": "(2025-2026-2)-211008044-01",
+                "credit": "3.0",
+                "weekday": 4,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "15-16周",
+                "list_weeks": [
+                    15,
+                    16
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "研创中心A213",
+                "hours_composition": "讲课学时:48",
+                "weekly_hours": 16,
+                "total_hours": 48
+            },
+            {
+                "course_id": "211008045",
+                "title": "虚拟现实应用开发",
+                "teacher": "李营",
+                "class_name": "(2025-2026-2)-211008045-01",
+                "credit": "2.0",
+                "weekday": 5,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "10-13周",
+                "list_weeks": [
+                    10,
+                    11,
+                    12,
+                    13
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "研创中心A213",
+                "hours_composition": "讲课学时:32",
+                "weekly_hours": 16,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211008053",
+                "title": "综合虚拟产品设计1",
+                "teacher": "简增强",
+                "class_name": "(2025-2026-2)-211008053-01",
+                "credit": "2.0",
+                "weekday": 5,
+                "time": "13:00~16:30",
+                "sessions": "5-8节",
+                "list_sessions": [
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "1-2周",
+                "list_weeks": [
+                    1,
+                    2
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "研创中心A213",
+                "hours_composition": "讲课学时:16,上机学时:16",
+                "weekly_hours": 8,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211008054",
+                "title": "综合虚拟产品设计2",
+                "teacher": "简增强",
+                "class_name": "(2025-2026-2)-211008054-01",
+                "credit": "2.0",
+                "weekday": 5,
+                "time": "13:00~16:30",
+                "sessions": "5-8节",
+                "list_sessions": [
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "3-4周",
+                "list_weeks": [
+                    3,
+                    4
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "研创中心A213",
+                "hours_composition": "讲课学时:16,上机学时:16",
+                "weekly_hours": 8,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211008047",
+                "title": "国防教育产品制作",
+                "teacher": "黄海",
+                "class_name": "(2025-2026-2)-211008047-01",
+                "credit": "2.0",
+                "weekday": 5,
+                "time": "13:00~16:30",
+                "sessions": "5-8节",
+                "list_sessions": [
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "5-6周",
+                "list_weeks": [
+                    5,
+                    6
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "研创中心A213",
+                "hours_composition": "讲课学时:16,上机学时:16",
+                "weekly_hours": 8,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211008048",
+                "title": "科普类虚拟教学设计",
+                "teacher": "黄海",
+                "class_name": "(2025-2026-2)-211008048-01",
+                "credit": "2.0",
+                "weekday": 5,
+                "time": "13:00~16:30",
+                "sessions": "5-8节",
+                "list_sessions": [
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "7-8周",
+                "list_weeks": [
+                    7,
+                    8
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "研创中心A213",
+                "hours_composition": "讲课学时:16,实验学时:16",
+                "weekly_hours": 8,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211008044",
+                "title": "专题设计",
+                "teacher": "杨硕",
+                "class_name": "(2025-2026-2)-211008044-01",
+                "credit": "3.0",
+                "weekday": 5,
+                "time": "13:00~16:30",
+                "sessions": "5-8节",
+                "list_sessions": [
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "15周",
+                "list_weeks": [
+                    15
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "研创中心A213",
+                "hours_composition": "讲课学时:48",
+                "weekly_hours": 16,
+                "total_hours": 48
+            }
+        ],
+        "extra_courses": [
+            "形势与政策6★李妍(共2周)/17-18周/无",
+            "虚拟现实作品设计■李舒(共2周)/9-10周/无",
+            "专题设计课程设计■杨硕(共2周)/17-18周/无",
+            "虚拟现实应用开发课程设计■李舒(共2周)/13-14周/无"
+        ]
+    }
+}

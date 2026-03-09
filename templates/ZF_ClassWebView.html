@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>光影沈理工作室空课程查询</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .current-week {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #666;
+        }
+        .view-mode-selector {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .view-mode-selector button {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .view-mode-selector button.active {
+            background-color: #4CAF50;
+            color: white;
+            border-color: #4CAF50;
+        }
+        form {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        select, input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+        }
+        .result h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .free-users {
+            list-style-type: none;
+            padding: 0;
+        }
+        .free-users li {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 4px;
+            border-left: 4px solid #4CAF50;
+        }
+        .time-slot-info {
+            background-color: #e8f5e8;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+        .week-view {
+            overflow-x: auto;
+        }
+        .week-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .week-table th, .week-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        .week-table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .week-table .time-slot {
+            font-weight: bold;
+            background-color: #f9f9f9;
+        }
+        .free-count {
+            font-weight: bold;
+            color: #4CAF50;
+            cursor: pointer;
+        }
+        .free-count:hover {
+            text-decoration: underline;
+        }
+        .cell-content {
+            position: relative;
+        }
+        .full-list {
+            display: none;
+            position: fixed;
+            background-color: white;
+            border: 2px solid #4CAF50;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            z-index: 1000;
+            max-height: 70vh;
+            overflow-y: auto;
+            min-width: 250px;
+            max-width: 90vw;
+            width: auto;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .full-list.show {
+            display: block;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+        .overlay.show {
+            display: block;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .full-list {
+                min-width: 200px;
+                max-width: 95vw;
+                max-height: 80vh;
+                padding: 12px;
+            }
+            .container {
+                padding: 10px;
+            }
+            .week-table th, .week-table td {
+                padding: 4px 3px;
+                font-size: 11px;
+            }
+            .week-view {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            .week-table {
+                min-width: 550px;
+            }
+            .free-count {
+                font-size: 13px;
+                padding: 3px 6px;
+            }
+            .week-table .time-slot {
+                min-width: 55px;
+            }
+            .cell-content {
+                min-width: 55px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .full-list {
+                min-width: 150px;
+                max-width: 98vw;
+                max-height: 85vh;
+                padding: 10px;
+            }
+            .week-table {
+                font-size: 9px;
+                min-width: 480px;
+            }
+            .week-table th, .week-table td {
+                padding: 3px 2px;
+                font-size: 10px;
+                vertical-align: middle;
+            }
+            .free-users li {
+                font-size: 10px;
+                padding: 1px 0;
+                line-height: 1.2;
+            }
+            .week-table th {
+                font-size: 9px;
+                white-space: nowrap;
+                padding: 3px 2px;
+            }
+            .week-table .time-slot {
+                font-size: 10px;
+                white-space: nowrap;
+                min-width: 50px;
+                padding: 3px 2px;
+            }
+            .free-count {
+                font-size: 11px;
+                padding: 2px 4px;
+                white-space: nowrap;
+            }
+            .cell-content {
+                min-width: 50px;
+                padding: 2px;
+            }
+            .week-table ul {
+                margin: 2px 0;
+                padding-left: 15px;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .week-table {
+                min-width: 420px;
+            }
+            .week-table th, .week-table td {
+                padding: 2px 1px;
+                font-size: 9px;
+            }
+            .free-count {
+                font-size: 10px;
+                padding: 2px 3px;
+            }
+            .week-table .time-slot {
+                font-size: 9px;
+                min-width: 45px;
+            }
+            .cell-content {
+                min-width: 45px;
+            }
+            .free-users li {
+                font-size: 9px;
+            }
+        }
+        
+        .day-view {
+            margin-top: 20px;
+        }
+        .day-slot {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+        }
+        .day-slot h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .day-view .free-users {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 0;
+            list-style: none;
+        }
+        .day-view .free-users li {
+            background-color: #e8f5e8;
+            padding: 4px 8px;
+            margin: 0;
+            border-radius: 4px;
+            border-left: none;
+            display: inline-block;
+            font-size: 14px;
+        }
+        .result .free-users {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 0;
+            list-style: none;
+        }
+        .result .free-users li {
+            background-color: #e8f5e8;
+            padding: 4px 8px;
+            margin: 0;
+            border-radius: 4px;
+            border-left: none;
+            display: inline-block;
+            font-size: 14px;
+        }
+        
+        /* 日视图响应式设计 */
+        @media (max-width: 768px) {
+            .day-view .free-users {
+                gap: 6px;
+            }
+            .day-view .free-users li {
+                font-size: 13px;
+                padding: 3px 6px;
+            }
+            .result .free-users {
+                gap: 6px;
+            }
+            .result .free-users li {
+                font-size: 13px;
+                padding: 3px 6px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .day-view .free-users {
+                gap: 5px;
+            }
+            .day-view .free-users li {
+                font-size: 12px;
+                padding: 2px 5px;
+            }
+            .result .free-users {
+                gap: 5px;
+            }
+            .result .free-users li {
+                font-size: 12px;
+                padding: 2px 5px;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .day-view .free-users {
+                gap: 4px;
+            }
+            .day-view .free-users li {
+                font-size: 11px;
+                padding: 2px 4px;
+            }
+            .result .free-users {
+                gap: 4px;
+            }
+            .result .free-users li {
+                font-size: 11px;
+                padding: 2px 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>空课程查询系统</h1>
+        <div class="current-week">
+            当前周数：第{{ current_week }}周
+        </div>
+        
+        <!-- 视图模式选择器 -->
+        <div class="view-mode-selector">
+            <form method="POST" style="display: inline;">
+                <input type="hidden" name="view_mode" value="week">
+                <button type="submit" class="{% if view_mode == 'week' %}active{% endif %}">周视图</button>
+            </form>
+            <form method="POST" style="display: inline;">
+                <input type="hidden" name="view_mode" value="day">
+                <button type="submit" class="{% if view_mode == 'day' %}active{% endif %}">日视图</button>
+            </form>
+            <form method="POST" style="display: inline;">
+                <input type="hidden" name="view_mode" value="specific">
+                <button type="submit" class="{% if view_mode == 'specific' %}active{% endif %}">特定查询</button>
+            </form>
+        </div>
+        
+        <!-- 周视图表单 -->
+        {% if view_mode == 'week' %}
+        <form method="POST">
+            <input type="hidden" name="view_mode" value="week">
+            <div class="form-group">
+                <label for="week_num">选择周数：</label>
+                <select id="week_num" name="week_num">
+                    {% for i in range(1, 21) %}
+                    <option value="{{ i }}" {% if i == selected_week %}selected{% endif %}>第{{ i }}周</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit">查询</button>
+        </form>
+        
+        <!-- 周视图表格 -->
+        <div class="week-view">
+            <h2>第{{ selected_week }}周空课程情况</h2>
+            <table class="week-table">
+                <thead>
+                    <tr>
+                        <th>时间段</th>
+                        {% for date in week_dates %}
+                        <th>{{ date.strftime('%m/%d') }}<br>{{ ['周一', '周二', '周三', '周四', '周五', '周六', '周日'][date.weekday()] }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for time_slot in class_time_slots %}
+                    <tr>
+                        <td class="time-slot">{{ time_slot[0] }}</td>
+                        {% for date in week_dates %}
+                        <td>
+                            {% set free_users = week_free_users[date][time_slot[0]] %}
+                            <div class="cell-content">
+                                <div class="free-count" onclick="toggleFullList(this, '{{ date.strftime('%Y-%m-%d') }}', '{{ time_slot[0] }}')">{{ free_users|length }}人</div>
+                                {% if free_users %}
+                                <ul class="free-users" style="margin: 5px 0; padding-left: 20px; text-align: left;">
+                                    {% for user in free_users[:3] %}
+                                    <li style="font-size: 12px; padding: 2px;">{{ user }}</li>
+                                    {% endfor %}
+                                    {% if free_users|length > 3 %}
+                                    <li style="font-size: 12px; padding: 2px; color: #4CAF50; cursor: pointer;" onclick="toggleFullListByCell(this)">查看更多...</li>
+                                    {% endif %}
+                                </ul>
+                                {% else %}
+                                <p style="font-size: 12px; color: #999;">无</p>
+                                {% endif %}
+                                <div class="full-list" id="list-{{ date.strftime('%Y%m%d') }}-{{ time_slot[0] }}">
+                                    <h4 style="margin: 0 0 10px 0; color: #333;">完整名单</h4>
+                                    <ul class="free-users" style="margin: 0; padding-left: 20px; text-align: left;">
+                                        {% for user in free_users %}
+                                        <li style="font-size: 12px; padding: 2px;">{{ user }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- 日视图表单 -->
+        {% elif view_mode == 'day' %}
+        <form method="POST">
+            <input type="hidden" name="view_mode" value="day">
+            <div class="form-group">
+                <label for="date">选择日期：</label>
+                <input type="date" id="date" name="date" value="{{ selected_date.strftime('%Y-%m-%d') }}">
+            </div>
+            <button type="submit">查询</button>
+        </form>
+        
+        <!-- 日视图结果 -->
+        <div class="day-view">
+            <h2>{{ selected_date.strftime('%Y年%m月%d日') }} 空课程情况</h2>
+            {% for time_slot in class_time_slots %}
+            <div class="day-slot">
+                <h3>{{ time_slot[0] }} ({{ time_slot[1][0] }}:{{ '%02d' % time_slot[1][1] }} - {{ time_slot[2][0] }}:{{ '%02d' % time_slot[2][1] }})</h3>
+                {% set free_users = day_free_users.get(time_slot[0], []) %}
+                {% if free_users %}
+                <ul class="free-users">
+                    {% for user in free_users %}
+                    <li>{{ user }}</li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p>该时间段没有空课程的人员</p>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        
+        <!-- 特定查询表单 -->
+        {% else %}
+        <form method="POST">
+            <input type="hidden" name="view_mode" value="specific">
+            <div class="form-group">
+                <label for="date">选择日期：</label>
+                <input type="date" id="date" name="date" value="{{ selected_date.strftime('%Y-%m-%d') }}">
+            </div>
+            <div class="form-group">
+                <label for="time_slot">选择时间段：</label>
+                <select id="time_slot" name="time_slot">
+                    {% for slot in class_time_slots %}
+                    <option value="{{ loop.index0 }}" {% if slot == selected_time_slot %}selected{% endif %}>
+                        {{ slot[0] }} ({{ slot[1][0] }}:{{ '%02d' % slot[1][1] }} - {{ slot[2][0] }}:{{ '%02d' % slot[2][1] }})
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit">查询</button>
+        </form>
+        
+        <!-- 特定查询结果 -->
+        <div class="result">
+            <div class="time-slot-info">
+                <strong>查询结果：</strong>{{ selected_date.strftime('%Y年%m月%d日') }} {{ selected_time_slot[0] }}
+            </div>
+            <h2>空课程人员：</h2>
+            {% if specific_free_users %}
+            <ul class="free-users">
+                {% for user in specific_free_users %}
+                <li>{{ user }}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>该时间段没有空课程的人员</p>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+    
+    <!-- 返回主页面链接 -->
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="{{ url_for('index') }}" style="color: #4CAF50; text-decoration: none; font-size: 16px;">返回主页面</a>
+    </div>
+    
+    <!-- 遮罩层 -->
+    <div class="overlay" id="overlay"></div>
+    
+    <script>
+        function toggleFullList(element, date, timeSlot) {
+            // 找到对应的完整列表
+            const cellContent = element.closest ? element.closest('.cell-content') : element.parentElement;
+            const fullList = cellContent.querySelector('.full-list');
+            
+            // 显示遮罩层和弹出框
+            const overlay = document.getElementById('overlay');
+            overlay.classList.add('show');
+            fullList.classList.add('show');
+        }
+        
+        function toggleFullListByCell(element) {
+            // 找到对应的完整列表
+            const cellContent = element.closest('.cell-content');
+            const fullList = cellContent.querySelector('.full-list');
+            
+            // 显示遮罩层和弹出框
+            const overlay = document.getElementById('overlay');
+            overlay.classList.add('show');
+            fullList.classList.add('show');
+        }
+        
+        function closeFullList() {
+            // 隐藏所有弹出框和遮罩层
+            const allLists = document.querySelectorAll('.full-list');
+            allLists.forEach(list => {
+                list.classList.remove('show');
+            });
+            
+            const overlay = document.getElementById('overlay');
+            overlay.classList.remove('show');
+        }
+        
+        // 点击遮罩层时关闭弹出框
+        document.getElementById('overlay').addEventListener('click', closeFullList);
+        
+        // 按ESC键关闭弹出框
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeFullList();
+            }
+        });
+    </script>
+</body>
+</html>

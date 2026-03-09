@@ -1,0 +1,772 @@
+{
+    "code": 1000,
+    "msg": "获取课表成功",
+    "data": {
+        "sid": "2410010103",
+        "name": "郑佳琦",
+        "year": 2025,
+        "term": 2,
+        "count": 26,
+        "courses": [
+            {
+                "course_id": "211001021",
+                "title": "创新设计方法与策略",
+                "teacher": "张宁宁",
+                "class_name": "(2025-2026-2)-211001021-01",
+                "credit": "2.0",
+                "weekday": 1,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "1-2周",
+                "list_weeks": [
+                    1,
+                    2
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "CLA215",
+                "hours_composition": "讲课学时:24,实验学时:8",
+                "weekly_hours": 8,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211001016",
+                "title": "造型材料与工艺",
+                "teacher": "杨猛",
+                "class_name": "(2025-2026-2)-211001016-01",
+                "credit": "2.0",
+                "weekday": 1,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "5-7周(单)",
+                "list_weeks": [
+                    5,
+                    7
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C-119(1)",
+                "hours_composition": "讲课学时:16,实验学时:16",
+                "weekly_hours": 4,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211001018",
+                "title": "产品设计研究方法",
+                "teacher": "王成玥",
+                "class_name": "(2025-2026-2)-211001018-01",
+                "credit": "2.0",
+                "weekday": 1,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "12-13周",
+                "list_weeks": [
+                    12,
+                    13
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "B-203(1)",
+                "hours_composition": "讲课学时:16,上机学时:16",
+                "weekly_hours": 4,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211000070",
+                "title": "大国兵器爱设计",
+                "teacher": "胡德强",
+                "class_name": "(2025-2026-2)-211000070-01",
+                "credit": "2.0",
+                "weekday": 1,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "16-18周",
+                "list_weeks": [
+                    16,
+                    17,
+                    18
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "CLA214(1)",
+                "hours_composition": "讲课学时:32",
+                "weekly_hours": 16,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211700012",
+                "title": "体育4",
+                "teacher": "李钰涛",
+                "class_name": "(2025-2026-2)-211700012-羽毛球4-6",
+                "credit": "1.0",
+                "weekday": 1,
+                "time": "13:00~14:40",
+                "sessions": "5-6节",
+                "list_sessions": [
+                    5,
+                    6
+                ],
+                "weeks": "2-17周",
+                "list_weeks": [
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "文体中心B馆篮球馆",
+                "hours_composition": "讲课学时:4,实验学时:28",
+                "weekly_hours": 2,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211000012",
+                "title": "日用陶瓷创新设计概论",
+                "teacher": "林松",
+                "class_name": "(2025-2026-2)-211000012-01",
+                "credit": "1.0",
+                "weekday": 1,
+                "time": "14:50~16:30",
+                "sessions": "7-8节",
+                "list_sessions": [
+                    7,
+                    8
+                ],
+                "weeks": "11-16周",
+                "list_weeks": [
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "A-111(1)",
+                "hours_composition": "讲课学时:16",
+                "weekly_hours": 2,
+                "total_hours": 16
+            },
+            {
+                "course_id": "211001021",
+                "title": "创新设计方法与策略",
+                "teacher": "张宁宁",
+                "class_name": "(2025-2026-2)-211001021-01",
+                "credit": "2.0",
+                "weekday": 2,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "1-2周",
+                "list_weeks": [
+                    1,
+                    2
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "CLA215",
+                "hours_composition": "讲课学时:24,实验学时:8",
+                "weekly_hours": 8,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211001016",
+                "title": "造型材料与工艺",
+                "teacher": "杨猛",
+                "class_name": "(2025-2026-2)-211001016-01",
+                "credit": "2.0",
+                "weekday": 2,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "5-7周",
+                "list_weeks": [
+                    5,
+                    6,
+                    7
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C-119(1)",
+                "hours_composition": "讲课学时:16,实验学时:16",
+                "weekly_hours": 4,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211001018",
+                "title": "产品设计研究方法",
+                "teacher": "王成玥",
+                "class_name": "(2025-2026-2)-211001018-01",
+                "credit": "2.0",
+                "weekday": 2,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "12-13周",
+                "list_weeks": [
+                    12,
+                    13
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "B-203(1)",
+                "hours_composition": "讲课学时:16,上机学时:16",
+                "weekly_hours": 4,
+                "total_hours": 32
+            },
+            {
+                "course_id": "210700022",
+                "title": "大学外语提高",
+                "teacher": "黄鹤",
+                "class_name": "(2025-2026-2)-210700022-46",
+                "credit": "2.0",
+                "weekday": 2,
+                "time": "13:00~14:40",
+                "sessions": "5-6节",
+                "list_sessions": [
+                    5,
+                    6
+                ],
+                "weeks": "1-7周,11-16周",
+                "list_weeks": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "A-204",
+                "hours_composition": "讲课学时:32",
+                "weekly_hours": 2,
+                "total_hours": 32
+            },
+            {
+                "course_id": "210900032",
+                "title": "物理实验B",
+                "teacher": "霍晓鑫",
+                "class_name": "(2025-2026-2)-210900032-01",
+                "credit": "0.8",
+                "weekday": 3,
+                "time": "8:00~9:40",
+                "sessions": "1-2节",
+                "list_sessions": [
+                    1,
+                    2
+                ],
+                "weeks": "1-12周",
+                "list_weeks": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "物理实验3",
+                "hours_composition": "讲课学时:2,实验学时:22",
+                "weekly_hours": 2,
+                "total_hours": 24
+            },
+            {
+                "course_id": "210700022",
+                "title": "大学外语提高",
+                "teacher": "黄鹤",
+                "class_name": "(2025-2026-2)-210700022-46",
+                "credit": "2.0",
+                "weekday": 3,
+                "time": "8:00~9:40",
+                "sessions": "1-2节",
+                "list_sessions": [
+                    1,
+                    2
+                ],
+                "weeks": "13-15周",
+                "list_weeks": [
+                    13,
+                    14,
+                    15
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "A-320",
+                "hours_composition": "讲课学时:32",
+                "weekly_hours": 2,
+                "total_hours": 32
+            },
+            {
+                "course_id": "219800010",
+                "title": "毛泽东思想和中国特色社会主义理论体系概论",
+                "teacher": "李洪帅",
+                "class_name": "(2025-2026-2)-219800010-35",
+                "credit": "3.0",
+                "weekday": 3,
+                "time": "10:00~11:40",
+                "sessions": "3-4节",
+                "list_sessions": [
+                    3,
+                    4
+                ],
+                "weeks": "1-7周,10-14周",
+                "list_weeks": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14
+                ],
+                "evaluation_mode": "考试",
+                "campus": "本部",
+                "place": "A-216",
+                "hours_composition": "讲课学时:40,实验学时:8",
+                "weekly_hours": 4,
+                "total_hours": 48
+            },
+            {
+                "course_id": "211001021",
+                "title": "创新设计方法与策略",
+                "teacher": "张宁宁",
+                "class_name": "(2025-2026-2)-211001021-01",
+                "credit": "2.0",
+                "weekday": 3,
+                "time": "13:00~16:30",
+                "sessions": "5-8节",
+                "list_sessions": [
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "1-2周",
+                "list_weeks": [
+                    1,
+                    2
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "CLA215",
+                "hours_composition": "讲课学时:24,实验学时:8",
+                "weekly_hours": 8,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211000009",
+                "title": "生活产品创新设计概论",
+                "teacher": "白坤",
+                "class_name": "(2025-2026-2)-211000009-01",
+                "credit": "1.0",
+                "weekday": 3,
+                "time": "13:00~16:30",
+                "sessions": "5-8节",
+                "list_sessions": [
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "3-6周",
+                "list_weeks": [
+                    3,
+                    4,
+                    5,
+                    6
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "B-202(1)",
+                "hours_composition": "讲课学时:16",
+                "weekly_hours": 2,
+                "total_hours": 16
+            },
+            {
+                "course_id": "211001018",
+                "title": "产品设计研究方法",
+                "teacher": "王成玥",
+                "class_name": "(2025-2026-2)-211001018-01",
+                "credit": "2.0",
+                "weekday": 3,
+                "time": "13:00~16:30",
+                "sessions": "5-8节",
+                "list_sessions": [
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "12-13周",
+                "list_weeks": [
+                    12,
+                    13
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "B-203(1)",
+                "hours_composition": "讲课学时:16,上机学时:16",
+                "weekly_hours": 4,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211000070",
+                "title": "大国兵器爱设计",
+                "teacher": "胡德强",
+                "class_name": "(2025-2026-2)-211000070-01",
+                "credit": "2.0",
+                "weekday": 3,
+                "time": "13:00~16:30",
+                "sessions": "5-8节",
+                "list_sessions": [
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "16-18周",
+                "list_weeks": [
+                    16,
+                    17,
+                    18
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "CLA214(1)",
+                "hours_composition": "讲课学时:32",
+                "weekly_hours": 16,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211001040",
+                "title": "设计心理学",
+                "teacher": "孙昭思",
+                "class_name": "(2025-2026-2)-211001040-01",
+                "credit": "1.2",
+                "weekday": 4,
+                "time": "14:50~16:30",
+                "sessions": "7-8节",
+                "list_sessions": [
+                    7,
+                    8
+                ],
+                "weeks": "1-7周",
+                "list_weeks": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "CLA画室(1)",
+                "hours_composition": "讲课学时:20",
+                "weekly_hours": 10,
+                "total_hours": 20
+            },
+            {
+                "course_id": "219800008",
+                "title": "形势与政策4",
+                "teacher": "暴秋菊",
+                "class_name": "(2025-2026-2)-219800008-28",
+                "credit": "0.5",
+                "weekday": 4,
+                "time": "14:50~16:30",
+                "sessions": "7-8节",
+                "list_sessions": [
+                    7,
+                    8
+                ],
+                "weeks": "10-13周",
+                "list_weeks": [
+                    10,
+                    11,
+                    12,
+                    13
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "A-107",
+                "hours_composition": "讲课学时:8",
+                "weekly_hours": 2,
+                "total_hours": 8
+            },
+            {
+                "course_id": "211000012",
+                "title": "日用陶瓷创新设计概论",
+                "teacher": "林松",
+                "class_name": "(2025-2026-2)-211000012-01",
+                "credit": "1.0",
+                "weekday": 4,
+                "time": "14:50~16:30",
+                "sessions": "7-8节",
+                "list_sessions": [
+                    7,
+                    8
+                ],
+                "weeks": "14-15周",
+                "list_weeks": [
+                    14,
+                    15
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "A-111(1)",
+                "hours_composition": "讲课学时:16",
+                "weekly_hours": 2,
+                "total_hours": 16
+            },
+            {
+                "course_id": "219800010",
+                "title": "毛泽东思想和中国特色社会主义理论体系概论",
+                "teacher": "李洪帅",
+                "class_name": "(2025-2026-2)-219800010-35",
+                "credit": "3.0",
+                "weekday": 5,
+                "time": "8:00~9:40",
+                "sessions": "1-2节",
+                "list_sessions": [
+                    1,
+                    2
+                ],
+                "weeks": "1-7周,10-14周",
+                "list_weeks": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14
+                ],
+                "evaluation_mode": "考试",
+                "campus": "本部",
+                "place": "A-416",
+                "hours_composition": "讲课学时:40,实验学时:8",
+                "weekly_hours": 4,
+                "total_hours": 48
+            },
+            {
+                "course_id": "211001040",
+                "title": "设计心理学",
+                "teacher": "孙昭思",
+                "class_name": "(2025-2026-2)-211001040-01",
+                "credit": "1.2",
+                "weekday": 5,
+                "time": "10:00~11:40",
+                "sessions": "3-4节",
+                "list_sessions": [
+                    3,
+                    4
+                ],
+                "weeks": "1周",
+                "list_weeks": [
+                    1
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "CLA画室(1)",
+                "hours_composition": "讲课学时:20",
+                "weekly_hours": 10,
+                "total_hours": 20
+            },
+            {
+                "course_id": "211001021",
+                "title": "创新设计方法与策略",
+                "teacher": "张宁宁",
+                "class_name": "(2025-2026-2)-211001021-01",
+                "credit": "2.0",
+                "weekday": 5,
+                "time": "13:00~16:30",
+                "sessions": "5-8节",
+                "list_sessions": [
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "1-2周",
+                "list_weeks": [
+                    1,
+                    2
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "CLA215",
+                "hours_composition": "讲课学时:24,实验学时:8",
+                "weekly_hours": 8,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211001016",
+                "title": "造型材料与工艺",
+                "teacher": "杨猛",
+                "class_name": "(2025-2026-2)-211001016-01",
+                "credit": "2.0",
+                "weekday": 5,
+                "time": "13:00~16:30",
+                "sessions": "5-8节",
+                "list_sessions": [
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "5-7周",
+                "list_weeks": [
+                    5,
+                    6,
+                    7
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C-119(1)",
+                "hours_composition": "讲课学时:16,实验学时:16",
+                "weekly_hours": 4,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211001018",
+                "title": "产品设计研究方法",
+                "teacher": "王成玥",
+                "class_name": "(2025-2026-2)-211001018-01",
+                "credit": "2.0",
+                "weekday": 5,
+                "time": "13:00~16:30",
+                "sessions": "5-8节",
+                "list_sessions": [
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "12-13周",
+                "list_weeks": [
+                    12,
+                    13
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "B-203(1)",
+                "hours_composition": "讲课学时:16,上机学时:16",
+                "weekly_hours": 4,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211000070",
+                "title": "大国兵器爱设计",
+                "teacher": "胡德强",
+                "class_name": "(2025-2026-2)-211000070-01",
+                "credit": "2.0",
+                "weekday": 5,
+                "time": "13:00~16:30",
+                "sessions": "5-8节",
+                "list_sessions": [
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "17-18周",
+                "list_weeks": [
+                    17,
+                    18
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "CLA214(1)",
+                "hours_composition": "讲课学时:32",
+                "weekly_hours": 16,
+                "total_hours": 32
+            }
+        ],
+        "extra_courses": [
+            "劳动教育■马佳博(共4周)/1-4周/无",
+            "产品设计制造生产实习■关涛(共2周)/8-9周/无",
+            "造型材料与工艺课程设计■杨猛(共2周)/10-11周/无",
+            "产品设计研究方法课程设计■王成玥(共2周)/14-15周/无",
+            "创新设计方法与策略课程设计■孟昭宇(共2周)/3-4周/无"
+        ]
+    }
+}

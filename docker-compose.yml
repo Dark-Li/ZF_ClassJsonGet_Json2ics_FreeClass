@@ -1,0 +1,11 @@
+version: '3'
+services:
+  zf-class-system:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./json_input:/app/json_input
+      - ./ics_output:/app/ics_output
+      - ./空课表统计结果Excel:/app/空课表统计结果Excel
+    restart: always

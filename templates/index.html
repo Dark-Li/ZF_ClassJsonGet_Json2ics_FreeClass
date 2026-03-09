@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>光影沈理课程表管理系统</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 100px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            font-size: 28px;
+        }
+        
+        .modules {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .module {
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .module:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .module h2 {
+            color: #3498db;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .module p {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+        
+        .module a {
+            display: inline-block;
+            background-color: #3498db;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        
+        .module a:hover {
+            background-color: #2980b9;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 14px;
+            color: #777;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>光影沈理课程表管理系统</h1>
+        
+        <div class="modules">
+            <div class="module">
+                <h2>课程表获取</h2>
+                <p>通过学号密码从教务系统获取课程表，并保存为JSON格式</p>
+                <a href="/get_json_class">进入功能</a>
+            </div>
+            
+            <div class="module">
+                <h2>课程表转换与统计</h2>
+                <p>将JSON格式课程表转换为ICS日历格式，并生成空课程统计表</p>
+                <a href="/json2ics">进入功能</a>
+            </div>
+            
+            <div class="module">
+                <h2>空课程查询</h2>
+                <p>查询不同时间段的空课程情况，支持周视图、日视图和特定查询</p>
+                <a href="/web_view">进入功能</a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>光影沈理工作室 © 2026</p>
+        </div>
+    </div>
+</body>
+</html>

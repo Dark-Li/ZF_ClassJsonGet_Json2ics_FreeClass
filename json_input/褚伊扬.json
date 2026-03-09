@@ -1,0 +1,1135 @@
+{
+    "code": 1000,
+    "msg": "获取课表成功",
+    "data": {
+        "sid": "2310040113",
+        "name": "褚伊扬",
+        "year": 2025,
+        "term": 2,
+        "count": 41,
+        "courses": [
+            {
+                "course_id": "211004049",
+                "title": "展陈设计—商业空间陈列",
+                "teacher": "王晓橹",
+                "class_name": "(2025-2026-2)-211004049-01",
+                "credit": "2.0",
+                "weekday": 1,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "1-2周",
+                "list_weeks": [
+                    1,
+                    2
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C406(1)",
+                "hours_composition": "讲课学时:32",
+                "weekly_hours": 4,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211004042",
+                "title": "招贴设计",
+                "teacher": "王惠",
+                "class_name": "(2025-2026-2)-211004042-01",
+                "credit": "3.0",
+                "weekday": 1,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "3-4周",
+                "list_weeks": [
+                    3,
+                    4
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C-408(1)",
+                "hours_composition": "讲课学时:48",
+                "weekly_hours": 4,
+                "total_hours": 48
+            },
+            {
+                "course_id": "211004064",
+                "title": "企业品牌网页设计",
+                "teacher": "王晓橹",
+                "class_name": "(2025-2026-2)-211004064-01",
+                "credit": "2.0",
+                "weekday": 1,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "11周",
+                "list_weeks": [
+                    11
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C406(1)",
+                "hours_composition": "讲课学时:32",
+                "weekly_hours": 4,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211004063",
+                "title": "咨询平台网页设计",
+                "teacher": "田淼",
+                "class_name": "(2025-2026-2)-211004063-01",
+                "credit": "2.0",
+                "weekday": 1,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "12-14周",
+                "list_weeks": [
+                    12,
+                    13,
+                    14
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C-407(1)",
+                "hours_composition": "讲课学时:32",
+                "weekly_hours": 4,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211004061",
+                "title": "视觉信息设计",
+                "teacher": "白清元",
+                "class_name": "(2025-2026-2)-211004061-01",
+                "credit": "3.0",
+                "weekday": 1,
+                "time": "10:00~16:30",
+                "sessions": "3-8节",
+                "list_sessions": [
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "18周",
+                "list_weeks": [
+                    18
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C-408(1)",
+                "hours_composition": "讲课学时:48",
+                "weekly_hours": 4,
+                "total_hours": 48
+            },
+            {
+                "course_id": "211004043",
+                "title": "动态网络广告",
+                "teacher": "王晓橹",
+                "class_name": "(2025-2026-2)-211004043-01",
+                "credit": "3.0",
+                "weekday": 1,
+                "time": "13:00~16:30",
+                "sessions": "5-8节",
+                "list_sessions": [
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "8-9周,11周",
+                "list_weeks": [
+                    8,
+                    9,
+                    11
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C406(1)",
+                "hours_composition": "讲课学时:40,实验学时:8",
+                "weekly_hours": 4,
+                "total_hours": 48
+            },
+            {
+                "course_id": "211004046",
+                "title": "影视广告设计",
+                "teacher": "聂阳",
+                "class_name": "(2025-2026-2)-211004046-01",
+                "credit": "3.0",
+                "weekday": 1,
+                "time": "13:00~16:30",
+                "sessions": "5-8节",
+                "list_sessions": [
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "14-16周",
+                "list_weeks": [
+                    14,
+                    15,
+                    16
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C-407(2)",
+                "hours_composition": "讲课学时:48",
+                "weekly_hours": 4,
+                "total_hours": 48
+            },
+            {
+                "course_id": "211004061",
+                "title": "视觉信息设计",
+                "teacher": "白清元",
+                "class_name": "(2025-2026-2)-211004061-01",
+                "credit": "3.0",
+                "weekday": 1,
+                "time": "13:00~16:30",
+                "sessions": "5-8节",
+                "list_sessions": [
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "17周",
+                "list_weeks": [
+                    17
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C-408(1)",
+                "hours_composition": "讲课学时:48",
+                "weekly_hours": 4,
+                "total_hours": 48
+            },
+            {
+                "course_id": "211004042",
+                "title": "招贴设计",
+                "teacher": "王惠",
+                "class_name": "(2025-2026-2)-211004042-01",
+                "credit": "3.0",
+                "weekday": 2,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "3-4周",
+                "list_weeks": [
+                    3,
+                    4
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C-408(1)",
+                "hours_composition": "讲课学时:48",
+                "weekly_hours": 4,
+                "total_hours": 48
+            },
+            {
+                "course_id": "211004046",
+                "title": "影视广告设计",
+                "teacher": "聂阳",
+                "class_name": "(2025-2026-2)-211004046-01",
+                "credit": "3.0",
+                "weekday": 2,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "14-16周",
+                "list_weeks": [
+                    14,
+                    15,
+                    16
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C-407(2)",
+                "hours_composition": "讲课学时:48",
+                "weekly_hours": 4,
+                "total_hours": 48
+            },
+            {
+                "course_id": "211004061",
+                "title": "视觉信息设计",
+                "teacher": "白清元",
+                "class_name": "(2025-2026-2)-211004061-01",
+                "credit": "3.0",
+                "weekday": 2,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "17-18周",
+                "list_weeks": [
+                    17,
+                    18
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C-408(1)",
+                "hours_composition": "讲课学时:48",
+                "weekly_hours": 4,
+                "total_hours": 48
+            },
+            {
+                "course_id": "211004042",
+                "title": "招贴设计",
+                "teacher": "王惠",
+                "class_name": "(2025-2026-2)-211004042-01",
+                "credit": "3.0",
+                "weekday": 2,
+                "time": "8:00~14:40",
+                "sessions": "1-6节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6
+                ],
+                "weeks": "5周",
+                "list_weeks": [
+                    5
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C-408(1)",
+                "hours_composition": "讲课学时:48",
+                "weekly_hours": 4,
+                "total_hours": 48
+            },
+            {
+                "course_id": "211004049",
+                "title": "展陈设计—商业空间陈列",
+                "teacher": "王晓橹",
+                "class_name": "(2025-2026-2)-211004049-01",
+                "credit": "2.0",
+                "weekday": 2,
+                "time": "13:00~16:30",
+                "sessions": "5-8节",
+                "list_sessions": [
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "1-2周",
+                "list_weeks": [
+                    1,
+                    2
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C406(1)",
+                "hours_composition": "讲课学时:32",
+                "weekly_hours": 4,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211004064",
+                "title": "企业品牌网页设计",
+                "teacher": "王晓橹",
+                "class_name": "(2025-2026-2)-211004064-01",
+                "credit": "2.0",
+                "weekday": 2,
+                "time": "13:00~16:30",
+                "sessions": "5-8节",
+                "list_sessions": [
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "11周",
+                "list_weeks": [
+                    11
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C406(1)",
+                "hours_composition": "讲课学时:32",
+                "weekly_hours": 4,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211004055",
+                "title": "成人绘本设计",
+                "teacher": "王刚",
+                "class_name": "(2025-2026-2)-211004055-01",
+                "credit": "2.0",
+                "weekday": 2,
+                "time": "13:00~16:30",
+                "sessions": "5-8节",
+                "list_sessions": [
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "18周",
+                "list_weeks": [
+                    18
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "A-328(1)",
+                "hours_composition": "讲课学时:32",
+                "weekly_hours": 4,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211004061",
+                "title": "视觉信息设计",
+                "teacher": "白清元",
+                "class_name": "(2025-2026-2)-211004061-01",
+                "credit": "3.0",
+                "weekday": 3,
+                "time": "8:00~9:40",
+                "sessions": "1-2节",
+                "list_sessions": [
+                    1,
+                    2
+                ],
+                "weeks": "16周",
+                "list_weeks": [
+                    16
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C-408(1)",
+                "hours_composition": "讲课学时:48",
+                "weekly_hours": 4,
+                "total_hours": 48
+            },
+            {
+                "course_id": "211004049",
+                "title": "展陈设计—商业空间陈列",
+                "teacher": "王晓橹",
+                "class_name": "(2025-2026-2)-211004049-01",
+                "credit": "2.0",
+                "weekday": 3,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "1-2周",
+                "list_weeks": [
+                    1,
+                    2
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C406(1)",
+                "hours_composition": "讲课学时:32",
+                "weekly_hours": 4,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211004042",
+                "title": "招贴设计",
+                "teacher": "王惠",
+                "class_name": "(2025-2026-2)-211004042-01",
+                "credit": "3.0",
+                "weekday": 3,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "3-4周",
+                "list_weeks": [
+                    3,
+                    4
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C-408(1)",
+                "hours_composition": "讲课学时:48",
+                "weekly_hours": 4,
+                "total_hours": 48
+            },
+            {
+                "course_id": "211004043",
+                "title": "动态网络广告",
+                "teacher": "王晓橹",
+                "class_name": "(2025-2026-2)-211004043-01",
+                "credit": "3.0",
+                "weekday": 3,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "8-11周",
+                "list_weeks": [
+                    8,
+                    9,
+                    10,
+                    11
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C406(1)",
+                "hours_composition": "讲课学时:40,实验学时:8",
+                "weekly_hours": 4,
+                "total_hours": 48
+            },
+            {
+                "course_id": "211004063",
+                "title": "咨询平台网页设计",
+                "teacher": "田淼",
+                "class_name": "(2025-2026-2)-211004063-01",
+                "credit": "2.0",
+                "weekday": 3,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "12-14周",
+                "list_weeks": [
+                    12,
+                    13,
+                    14
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C-407(1)",
+                "hours_composition": "讲课学时:32",
+                "weekly_hours": 4,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211004042",
+                "title": "招贴设计",
+                "teacher": "王惠",
+                "class_name": "(2025-2026-2)-211004042-01",
+                "credit": "3.0",
+                "weekday": 3,
+                "time": "8:00~14:40",
+                "sessions": "1-6节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6
+                ],
+                "weeks": "5周",
+                "list_weeks": [
+                    5
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C-408(1)",
+                "hours_composition": "讲课学时:48",
+                "weekly_hours": 4,
+                "total_hours": 48
+            },
+            {
+                "course_id": "211004061",
+                "title": "视觉信息设计",
+                "teacher": "白清元",
+                "class_name": "(2025-2026-2)-211004061-01",
+                "credit": "3.0",
+                "weekday": 3,
+                "time": "10:00~11:40",
+                "sessions": "3-4节",
+                "list_sessions": [
+                    3,
+                    4
+                ],
+                "weeks": "18周",
+                "list_weeks": [
+                    18
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C-408(1)",
+                "hours_composition": "讲课学时:48",
+                "weekly_hours": 4,
+                "total_hours": 48
+            },
+            {
+                "course_id": "211004046",
+                "title": "影视广告设计",
+                "teacher": "聂阳",
+                "class_name": "(2025-2026-2)-211004046-01",
+                "credit": "3.0",
+                "weekday": 3,
+                "time": "13:00~16:30",
+                "sessions": "5-8节",
+                "list_sessions": [
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "14-16周",
+                "list_weeks": [
+                    14,
+                    15,
+                    16
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C-407(2)",
+                "hours_composition": "讲课学时:48",
+                "weekly_hours": 4,
+                "total_hours": 48
+            },
+            {
+                "course_id": "211004055",
+                "title": "成人绘本设计",
+                "teacher": "王刚",
+                "class_name": "(2025-2026-2)-211004055-01",
+                "credit": "2.0",
+                "weekday": 3,
+                "time": "13:00~16:30",
+                "sessions": "5-8节",
+                "list_sessions": [
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "17-18周",
+                "list_weeks": [
+                    17,
+                    18
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "A-328(1)",
+                "hours_composition": "讲课学时:32",
+                "weekly_hours": 4,
+                "total_hours": 32
+            },
+            {
+                "course_id": "215500040",
+                "title": "大学生职业发展与创业就业指导",
+                "teacher": "臧欣慈",
+                "class_name": "(2025-2026-2)-215500040-01",
+                "credit": "1.5",
+                "weekday": 3,
+                "time": "14:50~16:30",
+                "sessions": "7-8节",
+                "list_sessions": [
+                    7,
+                    8
+                ],
+                "weeks": "1-6周",
+                "list_weeks": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "CLA318",
+                "hours_composition": "讲课学时:16,实验学时:8",
+                "weekly_hours": 2,
+                "total_hours": 24
+            },
+            {
+                "course_id": "215500040",
+                "title": "大学生职业发展与创业就业指导",
+                "teacher": "李营",
+                "class_name": "(2025-2026-2)-215500040-01",
+                "credit": "1.5",
+                "weekday": 3,
+                "time": "14:50~16:30",
+                "sessions": "7-8节",
+                "list_sessions": [
+                    7,
+                    8
+                ],
+                "weeks": "7-12周",
+                "list_weeks": [
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "CLA318",
+                "hours_composition": "讲课学时:16,实验学时:8",
+                "weekly_hours": 2,
+                "total_hours": 24
+            },
+            {
+                "course_id": "211004042",
+                "title": "招贴设计",
+                "teacher": "王惠",
+                "class_name": "(2025-2026-2)-211004042-01",
+                "credit": "3.0",
+                "weekday": 4,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "3-5周",
+                "list_weeks": [
+                    3,
+                    4,
+                    5
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C-408(1)",
+                "hours_composition": "讲课学时:48",
+                "weekly_hours": 4,
+                "total_hours": 48
+            },
+            {
+                "course_id": "211004043",
+                "title": "动态网络广告",
+                "teacher": "王晓橹",
+                "class_name": "(2025-2026-2)-211004043-01",
+                "credit": "3.0",
+                "weekday": 4,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "8-11周",
+                "list_weeks": [
+                    8,
+                    9,
+                    10,
+                    11
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C406(1)",
+                "hours_composition": "讲课学时:40,实验学时:8",
+                "weekly_hours": 4,
+                "total_hours": 48
+            },
+            {
+                "course_id": "211004046",
+                "title": "影视广告设计",
+                "teacher": "聂阳",
+                "class_name": "(2025-2026-2)-211004046-01",
+                "credit": "3.0",
+                "weekday": 4,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "14-16周",
+                "list_weeks": [
+                    14,
+                    15,
+                    16
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C-407(2)",
+                "hours_composition": "讲课学时:48",
+                "weekly_hours": 4,
+                "total_hours": 48
+            },
+            {
+                "course_id": "211004055",
+                "title": "成人绘本设计",
+                "teacher": "王刚",
+                "class_name": "(2025-2026-2)-211004055-01",
+                "credit": "2.0",
+                "weekday": 4,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "17-18周",
+                "list_weeks": [
+                    17,
+                    18
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "A-328(1)",
+                "hours_composition": "讲课学时:32",
+                "weekly_hours": 4,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211004064",
+                "title": "企业品牌网页设计",
+                "teacher": "王晓橹",
+                "class_name": "(2025-2026-2)-211004064-01",
+                "credit": "2.0",
+                "weekday": 4,
+                "time": "14:50~16:30",
+                "sessions": "7-8节",
+                "list_sessions": [
+                    7,
+                    8
+                ],
+                "weeks": "12-15周",
+                "list_weeks": [
+                    12,
+                    13,
+                    14,
+                    15
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C406(1)",
+                "hours_composition": "讲课学时:32",
+                "weekly_hours": 4,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211004061",
+                "title": "视觉信息设计",
+                "teacher": "白清元",
+                "class_name": "(2025-2026-2)-211004061-01",
+                "credit": "3.0",
+                "weekday": 4,
+                "time": "14:50~16:30",
+                "sessions": "7-8节",
+                "list_sessions": [
+                    7,
+                    8
+                ],
+                "weeks": "17-18周",
+                "list_weeks": [
+                    17,
+                    18
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C-408(1)",
+                "hours_composition": "讲课学时:48",
+                "weekly_hours": 4,
+                "total_hours": 48
+            },
+            {
+                "course_id": "211004055",
+                "title": "成人绘本设计",
+                "teacher": "王刚",
+                "class_name": "(2025-2026-2)-211004055-01",
+                "credit": "2.0",
+                "weekday": 4,
+                "time": "14:50~18:20",
+                "sessions": "7-10节",
+                "list_sessions": [
+                    7,
+                    8,
+                    9,
+                    10
+                ],
+                "weeks": "16周",
+                "list_weeks": [
+                    16
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "A-328(1)",
+                "hours_composition": "讲课学时:32",
+                "weekly_hours": 4,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211004049",
+                "title": "展陈设计—商业空间陈列",
+                "teacher": "王晓橹",
+                "class_name": "(2025-2026-2)-211004049-01",
+                "credit": "2.0",
+                "weekday": 5,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "1-2周",
+                "list_weeks": [
+                    1,
+                    2
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C406(1)",
+                "hours_composition": "讲课学时:32",
+                "weekly_hours": 4,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211004064",
+                "title": "企业品牌网页设计",
+                "teacher": "王晓橹",
+                "class_name": "(2025-2026-2)-211004064-01",
+                "credit": "2.0",
+                "weekday": 5,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "12-15周",
+                "list_weeks": [
+                    12,
+                    13,
+                    14,
+                    15
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C406(1)",
+                "hours_composition": "讲课学时:32",
+                "weekly_hours": 4,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211004061",
+                "title": "视觉信息设计",
+                "teacher": "白清元",
+                "class_name": "(2025-2026-2)-211004061-01",
+                "credit": "3.0",
+                "weekday": 5,
+                "time": "8:00~11:40",
+                "sessions": "1-4节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "weeks": "17周",
+                "list_weeks": [
+                    17
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C-408(1)",
+                "hours_composition": "讲课学时:48",
+                "weekly_hours": 4,
+                "total_hours": 48
+            },
+            {
+                "course_id": "211004061",
+                "title": "视觉信息设计",
+                "teacher": "白清元",
+                "class_name": "(2025-2026-2)-211004061-01",
+                "credit": "3.0",
+                "weekday": 5,
+                "time": "8:00~14:40",
+                "sessions": "1-6节",
+                "list_sessions": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6
+                ],
+                "weeks": "18周",
+                "list_weeks": [
+                    18
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C-408(1)",
+                "hours_composition": "讲课学时:48",
+                "weekly_hours": 4,
+                "total_hours": 48
+            },
+            {
+                "course_id": "211004043",
+                "title": "动态网络广告",
+                "teacher": "王晓橹",
+                "class_name": "(2025-2026-2)-211004043-01",
+                "credit": "3.0",
+                "weekday": 5,
+                "time": "13:00~16:30",
+                "sessions": "5-8节",
+                "list_sessions": [
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "10周",
+                "list_weeks": [
+                    10
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C406(1)",
+                "hours_composition": "讲课学时:40,实验学时:8",
+                "weekly_hours": 4,
+                "total_hours": 48
+            },
+            {
+                "course_id": "211004055",
+                "title": "成人绘本设计",
+                "teacher": "王刚",
+                "class_name": "(2025-2026-2)-211004055-01",
+                "credit": "2.0",
+                "weekday": 5,
+                "time": "13:00~16:30",
+                "sessions": "5-8节",
+                "list_sessions": [
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "15-17周(单)",
+                "list_weeks": [
+                    15,
+                    17
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "A-328(1)",
+                "hours_composition": "讲课学时:32",
+                "weekly_hours": 4,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211004063",
+                "title": "咨询平台网页设计",
+                "teacher": "田淼",
+                "class_name": "(2025-2026-2)-211004063-01",
+                "credit": "2.0",
+                "weekday": 6,
+                "time": "13:00~16:30",
+                "sessions": "5-8节",
+                "list_sessions": [
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "11周,15周",
+                "list_weeks": [
+                    11,
+                    15
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C-407(1)",
+                "hours_composition": "讲课学时:32",
+                "weekly_hours": 4,
+                "total_hours": 32
+            },
+            {
+                "course_id": "211004061",
+                "title": "视觉信息设计",
+                "teacher": "白清元",
+                "class_name": "(2025-2026-2)-211004061-01",
+                "credit": "3.0",
+                "weekday": 7,
+                "time": "10:00~16:30",
+                "sessions": "3-8节",
+                "list_sessions": [
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "weeks": "15-17周(单)",
+                "list_weeks": [
+                    15,
+                    17
+                ],
+                "evaluation_mode": "考查",
+                "campus": "本部",
+                "place": "C-408(1)",
+                "hours_composition": "讲课学时:48",
+                "weekly_hours": 4,
+                "total_hours": 48
+            }
+        ],
+        "extra_courses": [
+            "形势与政策6★李妍(共2周)/17-18周/无",
+            "招贴设计课程设计■王惠(共2周)/6-7周/无",
+            "动态网络广告课程设计■王晓橹(共2周)/12-13周/无",
+            "影视广告设计课程设计■聂阳(共1周)/17周/无"
+        ]
+    }
+}
