@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, send_file
+from flask import Flask, render_template, request, redirect, url_for, flash, send_file, make_response
 import json
 import os
 from datetime import datetime, timedelta
@@ -304,6 +304,10 @@ def convert_json2ics():
                 ics_filename = os.path.splitext(filename)[0] + ".ics"
                 ics_path = os.path.join(ICS_FOLDER, ics_filename)
                 generate_ics_from_json(json_path, ics_path)
+
+        # 转换后主动清理 WebView 缓存，确保下次查询立即读取新课表
+        if 'ZF_ClassWebView' in globals() and hasattr(ZF_ClassWebView, 'invalidate_users_courses_cache'):
+            ZF_ClassWebView.invalidate_users_courses_cache()
         
         flash('所有JSON文件已成功转换为ICS文件', 'success')
     except Exception as e:
@@ -393,7 +397,11 @@ spec.loader.exec_module(ZF_ClassWebView)
 @app.route('/web_view', methods=['GET', 'POST'])
 def web_view():
     # 调用ZF_ClassWebView中的index函数
-    return ZF_ClassWebView.index()
+    response = make_response(ZF_ClassWebView.index())
+    response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, max-age=0'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '0'
+    return response
 
 # 导入必要的模块
 from datetime import timedelta

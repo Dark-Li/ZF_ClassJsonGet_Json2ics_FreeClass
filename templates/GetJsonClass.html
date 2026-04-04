@@ -3,143 +3,393 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>正方教务课程表获取</title>
+    <title>光影沈理个人课程表获取</title>
     <style>
+        :root {
+            --bg-1: #081d32;
+            --bg-2: #10385f;
+            --card: rgba(255, 255, 255, 0.1);
+            --card-border: rgba(255, 255, 255, 0.3);
+            --text: #e8f2ff;
+            --sub: #bed4e9;
+            --accent: #14d4c5;
+            --accent-strong: #11b6a8;
+            --error-bg: rgba(255, 84, 111, 0.16);
+            --error-border: rgba(255, 84, 111, 0.42);
+            --success-bg: rgba(35, 214, 136, 0.18);
+            --success-border: rgba(35, 214, 136, 0.45);
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
-        
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7fa;
-            color: #333;
-            line-height: 1.6;
+            min-height: 100vh;
+            font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at 12% 14%, rgba(20, 212, 197, 0.2), transparent 34%),
+                radial-gradient(circle at 85% 82%, rgba(255, 193, 107, 0.14), transparent 30%),
+                linear-gradient(135deg, var(--bg-1), var(--bg-2));
+            display: grid;
+            place-items: center;
+            padding: 18px;
         }
-        
-        .container {
-            max-width: 500px;
-            margin: 100px auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+        .layout {
+            width: min(1040px, 100%);
+            display: grid;
+            grid-template-columns: 1.06fr 0.94fr;
+            gap: 20px;
+            align-items: stretch;
         }
-        
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-            margin-bottom: 30px;
-            font-size: 24px;
+
+        .left-panel,
+        .form-panel {
+            border-radius: 24px;
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
         }
-        
-        .form-group {
-            margin-bottom: 20px;
+
+        .left-panel {
+            padding: 32px 28px;
+            animation: slideUp 0.7s ease forwards;
         }
-        
+
+        .left-panel h1 {
+            font-size: clamp(1.6rem, 2.7vw, 2.4rem);
+            line-height: 1.2;
+            margin-bottom: 14px;
+        }
+
+        .left-panel p {
+            color: var(--sub);
+            line-height: 1.7;
+            margin-bottom: 14px;
+        }
+
+        .points {
+            margin-top: 26px;
+            display: grid;
+            gap: 10px;
+        }
+
+        .point {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #dbebff;
+            font-size: 15px;
+        }
+
+        .point::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 0 4px rgba(20, 212, 197, 0.18);
+            flex-shrink: 0;
+        }
+
+        .form-panel {
+            padding: 28px 24px;
+            animation: slideUp 0.85s ease forwards;
+        }
+
+        .panel-title {
+            margin-bottom: 18px;
+            font-size: 1.22rem;
+            font-weight: 700;
+        }
+
+        .flash-wrap {
+            display: grid;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .flash-message {
+            border-radius: 12px;
+            padding: 11px 12px;
+            font-size: 14px;
+            animation: popIn 0.35s ease;
+        }
+
+        .flash-success {
+            background: var(--success-bg);
+            border: 1px solid var(--success-border);
+            color: #bbffe0;
+        }
+
+        .flash-error {
+            background: var(--error-bg);
+            border: 1px solid var(--error-border);
+            color: #ffd5df;
+        }
+
+        form {
+            display: grid;
+            gap: 16px;
+        }
+
+        .field {
+            display: grid;
+            gap: 7px;
+        }
+
         label {
-            display: block;
-            margin-bottom: 8px;
+            font-size: 14px;
+            color: #d4e4f4;
             font-weight: 600;
-            color: #555;
         }
-        
+
+        .input-wrap {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-wrap svg {
+            position: absolute;
+            left: 12px;
+            opacity: 0.72;
+        }
+
         input[type="text"],
         input[type="password"] {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
-            transition: border-color 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            background: rgba(10, 35, 58, 0.58);
+            border-radius: 12px;
+            color: #eff7ff;
+            padding: 12px 42px 12px 40px;
+            font-size: 15px;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
         }
-        
-        input[type="text"]:focus,
-        input[type="password"]:focus {
-            border-color: #3498db;
+
+        input::placeholder {
+            color: #aac3d8;
+        }
+
+        input:focus {
             outline: none;
-            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+            border-color: rgba(20, 212, 197, 0.8);
+            box-shadow: 0 0 0 4px rgba(20, 212, 197, 0.2);
+            transform: translateY(-1px);
         }
-        
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #3498db;
-            color: #fff;
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            background: transparent;
             border: none;
-            border-radius: 4px;
-            font-size: 16px;
+            color: #c7dbee;
             cursor: pointer;
-            transition: background-color 0.3s;
+            font-size: 13px;
+            padding: 6px;
         }
-        
-        button:hover {
-            background-color: #2980b9;
+
+        .submit-btn {
+            position: relative;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(90deg, var(--accent), #4ef1e0);
+            color: #06242a;
+            font-weight: 800;
+            font-size: 15px;
+            padding: 13px 14px;
+            cursor: pointer;
+            transition: transform 0.24s ease, filter 0.24s ease;
+            overflow: hidden;
         }
-        
-        .flash-message {
-            margin-bottom: 20px;
-            padding: 12px;
-            border-radius: 4px;
-            text-align: center;
-            font-weight: 600;
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.02);
         }
-        
-        .flash-success {
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
+
+        .submit-btn.loading {
+            pointer-events: none;
+            color: transparent;
         }
-        
-        .flash-error {
-            background-color: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
+
+        .submit-btn.loading::after {
+            content: "";
+            width: 17px;
+            height: 17px;
+            border: 2px solid rgba(0, 0, 0, 0.25);
+            border-top-color: rgba(0, 0, 0, 0.75);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -8px;
+            margin-top: -8px;
+            animation: spin 0.9s linear infinite;
         }
-        
-        .footer {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 14px;
-            color: #777;
+
+        .foot-note {
+            margin-top: 12px;
+            color: var(--sub);
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .return-link {
+            margin-top: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #bdfcf5;
+            text-decoration: none;
+            border-bottom: 1px dashed rgba(189, 252, 245, 0.4);
+        }
+
+        .return-link:hover {
+            color: #d8fff7;
+            border-bottom-color: rgba(216, 255, 247, 0.72);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes popIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media (max-width: 960px) {
+            .layout {
+                grid-template-columns: 1fr;
+            }
+
+            .left-panel {
+                order: 2;
+            }
+
+            .form-panel {
+                order: 1;
+            }
+        }
+
+        @media (max-width: 560px) {
+            body {
+                padding: 12px;
+            }
+
+            .left-panel,
+            .form-panel {
+                border-radius: 16px;
+            }
+
+            .left-panel,
+            .form-panel {
+                padding: 20px 16px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>正方教务课程表获取</h1>
-        
-        <!-- 消息显示区域 -->
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                {% for category, message in messages %}
-                    <div class="flash-message flash-{{ category }}">
-                        {{ message }}
+    <div class="layout">
+        <section class="left-panel">
+            <h1>登录并获取个人课程表</h1>
+            <p>输入学号与教务系统密码后，系统将自动抓取你当前学期课程，并以 JSON 格式保存用于后续转换与统计分析。</p>
+            <p>页面只负责请求并展示结果，不会在浏览器中持久化你的账号口令。</p>
+            <div class="points">
+                <div class="point">自动识别当前学期并生成文件</div>
+                <div class="point">支持后续批量转换 ICS 日历</div>
+                <div class="point">支持空课查询和空课统计</div>
+            </div>
+        </section>
+
+        <section class="form-panel">
+            <h2 class="panel-title">课表获取入口</h2>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="flash-wrap">
+                        {% for category, message in messages %}
+                            <div class="flash-message flash-{{ category }}">{{ message }}</div>
+                        {% endfor %}
                     </div>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
-        
-        <!-- 登录表单 -->
-        <form method="POST" action="{{ url_for('get_schedule') }}">
-            <div class="form-group">
-                <label for="sid">学号</label>
-                <input type="text" id="sid" name="sid" placeholder="请输入学号" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="password">密码</label>
-                <input type="password" id="password" name="password" placeholder="请输入教务系统密码" required>
-            </div>
-            
-            <button type="submit">获取课程表</button>
-        </form>
-        
-        <div class="footer">
-            <p>课程表将保存到服务器本地，用于后续转换为ICS格式，本网页不会保存你们的账号和密码</p>
-            <p><a href="{{ url_for('index') }}" style="color: #3498db; text-decoration: none;">返回主页面</a></p>
-        </div>
+                {% endif %}
+            {% endwith %}
+
+            <form method="POST" action="{{ url_for('get_schedule') }}" id="scheduleForm">
+                <div class="field">
+                    <label for="sid">学号</label>
+                    <div class="input-wrap">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="8" r="4" stroke="#D9EDFF" stroke-width="1.8"/>
+                            <path d="M4 20c1.4-4 4-6 8-6s6.6 2 8 6" stroke="#D9EDFF" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                        <input type="text" id="sid" name="sid" placeholder="例如：2411070126" autocomplete="username" required>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="password">密码</label>
+                    <div class="input-wrap">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                            <rect x="4" y="10" width="16" height="10" rx="2" stroke="#D9EDFF" stroke-width="1.8"/>
+                            <path d="M8 10V8a4 4 0 1 1 8 0v2" stroke="#D9EDFF" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                        <input type="password" id="password" name="password" placeholder="请输入教务系统密码" autocomplete="current-password" required>
+                        <button type="button" class="toggle-password" id="togglePassword">显示</button>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">获取课程表</button>
+            </form>
+
+            <p class="foot-note">提示：若教务系统触发验证码流程，页面会提示你改用其他方式获取数据。</p>
+            <a class="return-link" href="{{ url_for('index') }}">返回主页面 →</a>
+        </section>
     </div>
+
+    <script>
+        (function () {
+            const toggleBtn = document.getElementById("togglePassword");
+            const passwordInput = document.getElementById("password");
+            const scheduleForm = document.getElementById("scheduleForm");
+            const submitBtn = document.getElementById("submitBtn");
+
+            toggleBtn.addEventListener("click", function () {
+                const isPassword = passwordInput.type === "password";
+                passwordInput.type = isPassword ? "text" : "password";
+                toggleBtn.textContent = isPassword ? "隐藏" : "显示";
+            });
+
+            scheduleForm.addEventListener("submit", function () {
+                submitBtn.classList.add("loading");
+            });
+        })();
+    </script>
 </body>
 </html>

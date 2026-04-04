@@ -3,588 +3,1568 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>正方教务空课程查询</title>
+    <title>光影沈理工作室空课程查询</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        :root {
+            --bg-1: #081d32;
+            --bg-2: #12446b;
+            --panel: rgba(255, 255, 255, 0.1);
+            --panel-border: rgba(255, 255, 255, 0.25);
+            --text-main: #eaf3ff;
+            --text-sub: #bed2e8;
+            --accent: #14d4c5;
+            --accent-strong: #11bcae;
+            --chip: rgba(20, 212, 197, 0.22);
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        .current-week {
-            text-align: center;
-            font-size: 18px;
-            margin-bottom: 20px;
-            color: #666;
-        }
-        .view-mode-selector {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-        .view-mode-selector button {
-            background-color: #f0f0f0;
-            border: 1px solid #ddd;
-            padding: 10px 20px;
-            margin: 0 5px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        .view-mode-selector button.active {
-            background-color: #4CAF50;
-            color: white;
-            border-color: #4CAF50;
-        }
-        form {
-            margin-bottom: 20px;
-            padding: 15px;
-            background-color: #f9f9f9;
-            border-radius: 4px;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        select, input[type="date"] {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        .result {
-            margin-top: 20px;
-        }
-        .result h2 {
-            color: #333;
-            margin-bottom: 10px;
-        }
-        .free-users {
-            list-style-type: none;
             padding: 0;
         }
-        .free-users li {
-            background-color: #f9f9f9;
-            padding: 10px;
-            margin-bottom: 5px;
-            border-radius: 4px;
-            border-left: 4px solid #4CAF50;
+
+        body {
+            min-height: 100vh;
+            font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+            background:
+                radial-gradient(circle at 14% 20%, rgba(20, 212, 197, 0.2), transparent 34%),
+                radial-gradient(circle at 90% 80%, rgba(255, 197, 113, 0.17), transparent 30%),
+                linear-gradient(135deg, var(--bg-1), var(--bg-2));
+            color: var(--text-main);
+            padding: 18px;
         }
-        .time-slot-info {
-            background-color: #e8f5e8;
-            padding: 10px;
-            border-radius: 4px;
-            margin-bottom: 15px;
+
+        .shell {
+            width: min(1240px, 100%);
+            margin: 0 auto;
+            display: grid;
+            gap: 16px;
         }
-        .week-view {
-            overflow-x: auto;
+
+        .hero,
+        .content {
+            border-radius: 20px;
+            border: 1px solid var(--panel-border);
+            background: var(--panel);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 46px rgba(0, 0, 0, 0.3);
         }
-        .week-table {
-            width: 100%;
-            border-collapse: collapse;
+
+        .hero {
+            padding: 22px;
+            animation: riseIn 0.72s ease;
         }
-        .week-table th, .week-table td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: center;
+
+        .hero h1 {
+            font-size: clamp(1.4rem, 2.4vw, 2rem);
+            margin-bottom: 8px;
         }
-        .week-table th {
-            background-color: #f2f2f2;
-            font-weight: bold;
+
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            color: var(--text-sub);
         }
-        .week-table .time-slot {
-            font-weight: bold;
-            background-color: #f9f9f9;
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border-radius: 999px;
+            padding: 7px 12px;
+            border: 1px solid rgba(20, 212, 197, 0.5);
+            background: rgba(20, 212, 197, 0.15);
+            color: #ccfff8;
+            font-size: 13px;
         }
-        .free-count {
-            font-weight: bold;
-            color: #4CAF50;
+
+        .mode-switch {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .mode-switch form {
+            margin: 0;
+        }
+
+        .mode-btn {
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            background: rgba(255, 255, 255, 0.08);
+            color: #ebf7ff;
+            padding: 9px 15px;
             cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s ease;
         }
-        .free-count:hover {
-            text-decoration: underline;
+
+        .mode-btn.active {
+            border-color: rgba(20, 212, 197, 0.7);
+            background: rgba(20, 212, 197, 0.23);
+            color: #ddfffb;
         }
-        .cell-content {
+
+        .content {
+            padding: 18px;
+            animation: riseIn 0.82s ease;
+        }
+
+        .query-form {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+            margin-bottom: 14px;
+            padding: 12px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: linear-gradient(150deg, rgba(5, 25, 40, 0.5), rgba(12, 43, 67, 0.4));
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        }
+
+        .field {
+            display: grid;
+            gap: 6px;
+        }
+
+        .field label {
+            font-size: 13px;
+            color: #d8e8f8;
+            font-weight: 600;
+        }
+
+        .field-control {
             position: relative;
         }
-        .full-list {
-            display: none;
-            position: fixed;
-            background-color: white;
-            border: 2px solid #4CAF50;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            z-index: 1000;
-            max-height: 70vh;
-            overflow-y: auto;
-            min-width: 250px;
-            max-width: 90vw;
-            width: auto;
-            left: 50%;
+
+        .control-icon {
+            position: absolute;
             top: 50%;
-            transform: translate(-50%, -50%);
+            left: 10px;
+            transform: translateY(-50%);
+            width: 22px;
+            height: 22px;
+            border-radius: 7px;
+            border: 1px solid rgba(20, 212, 197, 0.36);
+            background: rgba(20, 212, 197, 0.18);
+            color: #dbfffa;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.3px;
+            pointer-events: none;
+            z-index: 2;
         }
-        .full-list.show {
-            display: block;
+
+        .picker {
+            position: relative;
         }
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
+
+        .picker-trigger {
             width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-            z-index: 999;
+            border-radius: 11px;
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            background: rgba(9, 34, 55, 0.62);
+            color: #ebf7ff;
+            padding: 10px 38px 10px 40px;
+            font-size: 14px;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            text-align: left;
+            cursor: pointer;
         }
-        .overlay.show {
+
+        .picker-value {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding-right: 14px;
+            font-weight: 600;
+            letter-spacing: 0.2px;
+        }
+
+        .picker-arrow {
+            position: absolute;
+            top: 50%;
+            right: 14px;
+            width: 8px;
+            height: 8px;
+            border-right: 2px solid rgba(224, 245, 255, 0.85);
+            border-bottom: 2px solid rgba(224, 245, 255, 0.85);
+            transform: translateY(-65%) rotate(45deg);
+            pointer-events: none;
+            transition: transform 0.2s ease;
+        }
+
+        .picker.open .picker-arrow {
+            transform: translateY(-35%) rotate(-135deg);
+        }
+
+        .picker.open .picker-trigger,
+        .picker-trigger:focus {
+            outline: none;
+            border-color: rgba(20, 212, 197, 0.72);
+            box-shadow: 0 0 0 3px rgba(20, 212, 197, 0.2);
+            background: rgba(10, 40, 64, 0.78);
+        }
+
+        .picker-panel {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: calc(100% + 8px);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.26);
+            background: linear-gradient(145deg, #102c46, #173d61);
+            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(10px);
+            z-index: 30;
+            display: none;
+        }
+
+        .picker.open .picker-panel {
+            display: block;
+            animation: fadeIn 0.2s ease;
+        }
+
+        .picker-options {
+            max-height: 262px;
+            overflow: auto;
+            padding: 7px;
+            display: grid;
+            gap: 5px;
+        }
+
+        .picker-search-wrap {
+            padding: 8px 8px 0;
+        }
+
+        .picker-search {
+            width: 100%;
+            height: 36px;
+            border-radius: 9px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.07);
+            color: #eaf5ff;
+            padding: 0 10px;
+            font-size: 13px;
+            outline: none;
+        }
+
+        .picker-search:focus {
+            border-color: rgba(20, 212, 197, 0.66);
+            box-shadow: 0 0 0 2px rgba(20, 212, 197, 0.2);
+        }
+
+        .picker-empty {
+            display: none;
+            margin: 2px 8px 8px;
+            border-radius: 8px;
+            border: 1px dashed rgba(255, 255, 255, 0.22);
+            padding: 9px;
+            color: #bdd2e6;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .picker-empty.show {
             display: block;
         }
-        
-        /* 响应式设计 */
-        @media (max-width: 768px) {
-            .full-list {
-                min-width: 200px;
-                max-width: 95vw;
-                max-height: 80vh;
+
+        .picker-option {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.04);
+            color: #e5f3ff;
+            border-radius: 9px;
+            padding: 8px 10px;
+            text-align: left;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.18s ease, border-color 0.18s ease;
+        }
+
+        .picker-option:hover {
+            border-color: rgba(20, 212, 197, 0.5);
+            background: rgba(20, 212, 197, 0.18);
+        }
+
+        .picker-option.active {
+            border-color: rgba(20, 212, 197, 0.75);
+            background: rgba(20, 212, 197, 0.28);
+            color: #ddfffb;
+        }
+
+        .picker-option:disabled {
+            opacity: 0.55;
+            cursor: not-allowed;
+        }
+
+        .date-panel {
+            min-width: 306px;
+            right: auto;
+            padding: 9px;
+        }
+
+        .date-head {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 7px;
+        }
+
+        .date-title {
+            text-align: center;
+            font-weight: 700;
+            color: #e7f4ff;
+            letter-spacing: 0.3px;
+        }
+
+        .date-nav {
+            width: 30px;
+            height: 30px;
+            border-radius: 9px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: rgba(255, 255, 255, 0.08);
+            color: #e9f5ff;
+            cursor: pointer;
+        }
+
+        .date-weekdays,
+        .date-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+        }
+
+        .date-weekdays span {
+            text-align: center;
+            font-size: 12px;
+            color: #bad1e5;
+            padding: 4px 0;
+        }
+
+        .date-cell {
+            height: 34px;
+            border-radius: 8px;
+            border: 1px solid transparent;
+            background: rgba(255, 255, 255, 0.03);
+            color: #e9f5ff;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .date-cell:hover {
+            border-color: rgba(20, 212, 197, 0.52);
+            background: rgba(20, 212, 197, 0.15);
+        }
+
+        .date-cell.muted {
+            color: #7e9ab3;
+        }
+
+        .date-cell.today {
+            border-color: rgba(255, 197, 113, 0.7);
+        }
+
+        .date-cell.active {
+            border-color: rgba(20, 212, 197, 0.82);
+            background: rgba(20, 212, 197, 0.3);
+            color: #dbfffa;
+            font-weight: 700;
+        }
+
+        .date-actions {
+            margin-top: 8px;
+            display: flex;
+            justify-content: space-between;
+            gap: 7px;
+        }
+
+        .date-action-btn {
+            flex: 1;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            background: rgba(255, 255, 255, 0.08);
+            color: #d9ebfb;
+            padding: 7px 10px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .date-action-btn:hover {
+            border-color: rgba(20, 212, 197, 0.55);
+            background: rgba(20, 212, 197, 0.15);
+        }
+
+        .submit-wrap {
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .submit-btn {
+            border: none;
+            border-radius: 11px;
+            background: linear-gradient(90deg, var(--accent), #52eee2);
+            color: #05252a;
+            font-weight: 800;
+            padding: 10px 18px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: transform 0.22s ease, filter 0.22s ease;
+            min-height: 42px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-1px);
+            filter: brightness(1.03);
+        }
+
+        .section-title {
+            margin: 10px 0 10px;
+            font-size: 1.02rem;
+        }
+
+        .week-view {
+            overflow-x: auto;
+            border-radius: 12px;
+        }
+
+        .week-mobile {
+            display: none;
+            gap: 10px;
+        }
+
+        .day-card {
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: rgba(6, 30, 48, 0.5);
+            overflow: hidden;
+        }
+
+        .day-card-head {
+            padding: 10px 12px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #dffef9;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+            background: rgba(20, 212, 197, 0.14);
+        }
+
+        .day-card-body {
+            display: grid;
+            gap: 8px;
+            padding: 10px;
+        }
+
+        .day-row {
+            display: grid;
+            grid-template-columns: 74px 1fr;
+            gap: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 10px;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .day-slot {
+            font-size: 12px;
+            font-weight: 700;
+            color: #d6fef8;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .day-row-content {
+            min-width: 0;
+        }
+
+        .day-row-content .count-btn {
+            margin-bottom: 6px;
+        }
+
+        .mini-users.mobile-mini {
+            justify-content: flex-start;
+        }
+
+        .week-table {
+            width: 100%;
+            min-width: 980px;
+            border-collapse: collapse;
+            background: rgba(5, 27, 44, 0.34);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+        }
+
+        .week-table th,
+        .week-table td {
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            padding: 9px 8px;
+            text-align: center;
+            vertical-align: top;
+        }
+
+        .week-table th {
+            background: rgba(255, 255, 255, 0.1);
+            font-size: 13px;
+        }
+
+        .time-slot {
+            font-weight: 700;
+            font-size: 13px;
+            color: #dffef9;
+            width: 95px;
+            background: rgba(20, 212, 197, 0.16);
+        }
+
+        .count-btn {
+            border: 1px solid rgba(20, 212, 197, 0.6);
+            background: rgba(20, 212, 197, 0.2);
+            color: #d8fffb;
+            border-radius: 999px;
+            padding: 4px 10px;
+            font-size: 12px;
+            cursor: pointer;
+            margin-bottom: 7px;
+        }
+
+        .mini-users {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            justify-content: center;
+        }
+
+        .mini-users span {
+            font-size: 11px;
+            border-radius: 999px;
+            padding: 3px 7px;
+            background: rgba(255, 255, 255, 0.12);
+            color: #d6e7f8;
+        }
+
+        .empty-cell {
+            font-size: 12px;
+            color: #9eb8cf;
+        }
+
+        .cards {
+            display: grid;
+            gap: 10px;
+        }
+
+        .slot-card {
+            border-radius: 13px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(5, 27, 43, 0.35);
+            padding: 12px;
+        }
+
+        .slot-card h3 {
+            font-size: 15px;
+            margin-bottom: 9px;
+        }
+
+        .users {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .users li {
+            border-radius: 999px;
+            background: var(--chip);
+            border: 1px solid rgba(20, 212, 197, 0.45);
+            color: #d7fff9;
+            padding: 4px 10px;
+            font-size: 13px;
+        }
+
+        .empty-tip {
+            font-size: 13px;
+            color: var(--text-sub);
+        }
+
+        .result-box {
+            border-radius: 13px;
+            border: 1px solid rgba(255, 255, 255, 0.21);
+            background: rgba(5, 27, 43, 0.35);
+            padding: 14px;
+        }
+
+        .person-week-view {
+            overflow-x: auto;
+            border-radius: 12px;
+        }
+
+        .person-week-table {
+            width: 100%;
+            min-width: 980px;
+            border-collapse: collapse;
+            background: rgba(5, 27, 44, 0.34);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+        }
+
+        .person-week-table th,
+        .person-week-table td {
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            padding: 9px 8px;
+            text-align: center;
+            vertical-align: top;
+        }
+
+        .person-week-table th {
+            background: rgba(255, 255, 255, 0.1);
+            font-size: 13px;
+        }
+
+        .course-tags {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .course-chip {
+            border-radius: 999px;
+            border: 1px solid rgba(255, 197, 113, 0.45);
+            background: rgba(255, 197, 113, 0.18);
+            color: #fff5df;
+            padding: 4px 8px;
+            font-size: 12px;
+        }
+
+        .person-week-mobile {
+            display: none;
+            gap: 10px;
+        }
+
+        .person-empty-tip {
+            font-size: 13px;
+            color: #9eb8cf;
+        }
+
+        .result-box .hint {
+            color: #d5fef8;
+            margin-bottom: 10px;
+        }
+
+        .back-wrap {
+            text-align: center;
+            margin-top: 4px;
+        }
+
+        .back-link {
+            color: #d3fff9;
+            text-decoration: none;
+            border-bottom: 1px dashed rgba(211, 255, 249, 0.6);
+            font-size: 15px;
+        }
+
+        .back-link:hover {
+            border-bottom-color: rgba(211, 255, 249, 0.95);
+        }
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(2, 12, 22, 0.55);
+            backdrop-filter: blur(2px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 14px;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+            animation: fadeIn 0.2s ease;
+        }
+
+        .modal-box {
+            width: min(560px, 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            background: linear-gradient(145deg, #0b2a45, #123f66);
+            color: #eaf3ff;
+            padding: 16px;
+            max-height: 78vh;
+            overflow: auto;
+        }
+
+        .modal-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .modal-close {
+            border: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.14);
+            color: #eaf3ff;
+            cursor: pointer;
+            padding: 6px 10px;
+        }
+
+        .modal-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .modal-list li {
+            border-radius: 999px;
+            padding: 5px 10px;
+            background: rgba(20, 212, 197, 0.24);
+            border: 1px solid rgba(20, 212, 197, 0.45);
+            font-size: 13px;
+        }
+
+        @keyframes riseIn {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .query-form {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .submit-wrap {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .week-view {
+                display: none;
+            }
+
+            .week-mobile {
+                display: grid;
+            }
+
+            .person-week-view {
+                display: none;
+            }
+
+            .person-week-mobile {
+                display: grid;
+            }
+        }
+
+        @media (max-width: 620px) {
+            body {
                 padding: 12px;
             }
-            .container {
+
+            .hero,
+            .content {
+                border-radius: 15px;
+            }
+
+            .hero {
+                padding: 16px;
+            }
+
+            .content {
+                padding: 14px;
+            }
+
+            .query-form {
+                grid-template-columns: 1fr;
                 padding: 10px;
             }
-            .week-table th, .week-table td {
-                padding: 4px 3px;
-                font-size: 11px;
-            }
-            .week-view {
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-            }
+
             .week-table {
-                min-width: 550px;
-            }
-            .free-count {
-                font-size: 13px;
-                padding: 3px 6px;
-            }
-            .week-table .time-slot {
-                min-width: 55px;
-            }
-            .cell-content {
-                min-width: 55px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .full-list {
-                min-width: 150px;
-                max-width: 98vw;
-                max-height: 85vh;
-                padding: 10px;
-            }
-            .week-table {
-                font-size: 9px;
-                min-width: 480px;
-            }
-            .week-table th, .week-table td {
-                padding: 3px 2px;
-                font-size: 10px;
-                vertical-align: middle;
-            }
-            .free-users li {
-                font-size: 10px;
-                padding: 1px 0;
-                line-height: 1.2;
-            }
-            .week-table th {
-                font-size: 9px;
-                white-space: nowrap;
-                padding: 3px 2px;
-            }
-            .week-table .time-slot {
-                font-size: 10px;
-                white-space: nowrap;
-                min-width: 50px;
-                padding: 3px 2px;
-            }
-            .free-count {
-                font-size: 11px;
-                padding: 2px 4px;
-                white-space: nowrap;
-            }
-            .cell-content {
-                min-width: 50px;
-                padding: 2px;
-            }
-            .week-table ul {
-                margin: 2px 0;
-                padding-left: 15px;
-            }
-        }
-        
-        @media (max-width: 360px) {
-            .week-table {
-                min-width: 420px;
-            }
-            .week-table th, .week-table td {
-                padding: 2px 1px;
-                font-size: 9px;
-            }
-            .free-count {
-                font-size: 10px;
-                padding: 2px 3px;
-            }
-            .week-table .time-slot {
-                font-size: 9px;
-                min-width: 45px;
-            }
-            .cell-content {
-                min-width: 45px;
-            }
-            .free-users li {
-                font-size: 9px;
-            }
-        }
-        
-        .day-view {
-            margin-top: 20px;
-        }
-        .day-slot {
-            margin-bottom: 20px;
-            padding: 15px;
-            background-color: #f9f9f9;
-            border-radius: 4px;
-        }
-        .day-slot h3 {
-            margin-top: 0;
-            color: #333;
-        }
-        .day-view .free-users {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            padding: 0;
-            list-style: none;
-        }
-        .day-view .free-users li {
-            background-color: #e8f5e8;
-            padding: 4px 8px;
-            margin: 0;
-            border-radius: 4px;
-            border-left: none;
-            display: inline-block;
-            font-size: 14px;
-        }
-        .result .free-users {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            padding: 0;
-            list-style: none;
-        }
-        .result .free-users li {
-            background-color: #e8f5e8;
-            padding: 4px 8px;
-            margin: 0;
-            border-radius: 4px;
-            border-left: none;
-            display: inline-block;
-            font-size: 14px;
-        }
-        
-        /* 日视图响应式设计 */
-        @media (max-width: 768px) {
-            .day-view .free-users {
-                gap: 6px;
-            }
-            .day-view .free-users li {
-                font-size: 13px;
-                padding: 3px 6px;
-            }
-            .result .free-users {
-                gap: 6px;
-            }
-            .result .free-users li {
-                font-size: 13px;
-                padding: 3px 6px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .day-view .free-users {
-                gap: 5px;
-            }
-            .day-view .free-users li {
-                font-size: 12px;
-                padding: 2px 5px;
-            }
-            .result .free-users {
-                gap: 5px;
-            }
-            .result .free-users li {
-                font-size: 12px;
-                padding: 2px 5px;
-            }
-        }
-        
-        @media (max-width: 360px) {
-            .day-view .free-users {
-                gap: 4px;
-            }
-            .day-view .free-users li {
-                font-size: 11px;
-                padding: 2px 4px;
-            }
-            .result .free-users {
-                gap: 4px;
-            }
-            .result .free-users li {
-                font-size: 11px;
-                padding: 2px 4px;
+                min-width: 720px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>空课程查询系统</h1>
-        <div class="current-week">
-            当前周数：第{{ current_week }}周
-        </div>
-        
-        <!-- 视图模式选择器 -->
-        <div class="view-mode-selector">
-            <form method="POST" style="display: inline;">
-                <input type="hidden" name="view_mode" value="week">
-                <button type="submit" class="{% if view_mode == 'week' %}active{% endif %}">周视图</button>
-            </form>
-            <form method="POST" style="display: inline;">
-                <input type="hidden" name="view_mode" value="day">
-                <button type="submit" class="{% if view_mode == 'day' %}active{% endif %}">日视图</button>
-            </form>
-            <form method="POST" style="display: inline;">
-                <input type="hidden" name="view_mode" value="specific">
-                <button type="submit" class="{% if view_mode == 'specific' %}active{% endif %}">特定查询</button>
-            </form>
-        </div>
-        
-        <!-- 周视图表单 -->
-        {% if view_mode == 'week' %}
-        <form method="POST">
-            <input type="hidden" name="view_mode" value="week">
-            <div class="form-group">
-                <label for="week_num">选择周数：</label>
-                <select id="week_num" name="week_num">
-                    {% for i in range(1, 21) %}
-                    <option value="{{ i }}" {% if i == selected_week %}selected{% endif %}>第{{ i }}周</option>
-                    {% endfor %}
-                </select>
+    <main class="shell">
+        <section class="hero">
+            <h1>空课程查询系统</h1>
+            <div class="hero-meta">
+                <span class="badge">当前周数：第{{ current_week }}周</span>
+                <span>支持周视图、日视图、特定时段查询</span>
             </div>
-            <button type="submit">查询</button>
-        </form>
-        
-        <!-- 周视图表格 -->
-        <div class="week-view">
-            <h2>第{{ selected_week }}周空课程情况</h2>
-            <table class="week-table">
-                <thead>
-                    <tr>
-                        <th>时间段</th>
-                        {% for date in week_dates %}
-                        <th>{{ date.strftime('%m/%d') }}<br>{{ ['周一', '周二', '周三', '周四', '周五', '周六', '周日'][date.weekday()] }}</th>
-                        {% endfor %}
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for time_slot in class_time_slots %}
-                    <tr>
-                        <td class="time-slot">{{ time_slot[0] }}</td>
-                        {% for date in week_dates %}
-                        <td>
-                            {% set free_users = week_free_users[date][time_slot[0]] %}
-                            <div class="cell-content">
-                                <div class="free-count" onclick="toggleFullList(this, '{{ date.strftime('%Y-%m-%d') }}', '{{ time_slot[0] }}')">{{ free_users|length }}人</div>
-                                {% if free_users %}
-                                <ul class="free-users" style="margin: 5px 0; padding-left: 20px; text-align: left;">
-                                    {% for user in free_users[:3] %}
-                                    <li style="font-size: 12px; padding: 2px;">{{ user }}</li>
+
+            <div class="mode-switch">
+                <form method="POST">
+                    <input type="hidden" name="view_mode" value="week">
+                    <button type="submit" class="mode-btn {% if view_mode == 'week' %}active{% endif %}">周视图</button>
+                </form>
+                <form method="POST">
+                    <input type="hidden" name="view_mode" value="day">
+                    <button type="submit" class="mode-btn {% if view_mode == 'day' %}active{% endif %}">日视图</button>
+                </form>
+                <form method="POST">
+                    <input type="hidden" name="view_mode" value="specific">
+                    <button type="submit" class="mode-btn {% if view_mode == 'specific' %}active{% endif %}">特定查询</button>
+                </form>
+                <form method="POST">
+                    <input type="hidden" name="view_mode" value="person">
+                    <button type="submit" class="mode-btn {% if view_mode == 'person' %}active{% endif %}">个人课表</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="content">
+            {% if view_mode == 'week' %}
+                <form method="POST" class="query-form">
+                    <input type="hidden" name="view_mode" value="week">
+                    <div class="field">
+                        <label for="week_picker_btn">选择周数</label>
+                        <div class="field-control picker option-picker" data-picker="week">
+                            <input type="hidden" name="week_num" value="{{ selected_week }}">
+                            <button type="button" class="picker-trigger" id="week_picker_btn">
+                                <span class="control-icon" aria-hidden="true">WK</span>
+                                <span class="picker-value">第{{ selected_week }}周</span>
+                                <span class="picker-arrow" aria-hidden="true"></span>
+                            </button>
+                            <div class="picker-panel">
+                                <div class="picker-options">
+                                    {% for i in range(1, 21) %}
+                                        <button
+                                            type="button"
+                                            class="picker-option {% if i == selected_week %}active{% endif %}"
+                                            data-value="{{ i }}"
+                                            data-label="第{{ i }}周">
+                                            第{{ i }}周
+                                        </button>
                                     {% endfor %}
-                                    {% if free_users|length > 3 %}
-                                    <li style="font-size: 12px; padding: 2px; color: #4CAF50; cursor: pointer;" onclick="toggleFullListByCell(this)">查看更多...</li>
-                                    {% endif %}
-                                </ul>
-                                {% else %}
-                                <p style="font-size: 12px; color: #999;">无</p>
-                                {% endif %}
-                                <div class="full-list" id="list-{{ date.strftime('%Y%m%d') }}-{{ time_slot[0] }}">
-                                    <h4 style="margin: 0 0 10px 0; color: #333;">完整名单</h4>
-                                    <ul class="free-users" style="margin: 0; padding-left: 20px; text-align: left;">
-                                        {% for user in free_users %}
-                                        <li style="font-size: 12px; padding: 2px;">{{ user }}</li>
-                                        {% endfor %}
-                                    </ul>
                                 </div>
                             </div>
-                        </td>
-                        {% endfor %}
-                    </tr>
+                        </div>
+                    </div>
+                    <div class="submit-wrap">
+                        <button type="submit" class="submit-btn">查询周视图</button>
+                    </div>
+                </form>
+
+                <h2 class="section-title">第{{ selected_week }}周空课总览</h2>
+                <div class="week-view">
+                    <table class="week-table">
+                        <thead>
+                            <tr>
+                                <th>时间段</th>
+                                {% for date in week_dates %}
+                                    <th>{{ date.strftime('%m/%d') }}<br>{{ ['周一', '周二', '周三', '周四', '周五', '周六', '周日'][date.weekday()] }}</th>
+                                {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for time_slot in class_time_slots %}
+                                <tr>
+                                    <td class="time-slot">{{ time_slot[0] }}</td>
+                                    {% for date in week_dates %}
+                                        {% set free_users = week_free_users[date][time_slot[0]] %}
+                                        <td>
+                                            <button
+                                                type="button"
+                                                class="count-btn"
+                                                onclick='showUsersModal({{ date.strftime("%Y-%m-%d")|tojson }}, {{ time_slot[0]|tojson }}, {{ free_users|tojson }})'>
+                                                {{ free_users|length }} 人
+                                            </button>
+                                            {% if free_users %}
+                                                <div class="mini-users">
+                                                    {% for user in free_users[:3] %}
+                                                        <span>{{ user }}</span>
+                                                    {% endfor %}
+                                                    {% if free_users|length > 3 %}
+                                                        <span>+{{ free_users|length - 3 }}</span>
+                                                    {% endif %}
+                                                </div>
+                                            {% else %}
+                                                <div class="empty-cell">该节次无空课</div>
+                                            {% endif %}
+                                        </td>
+                                    {% endfor %}
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="week-mobile">
+                    {% for date in week_dates %}
+                        <article class="day-card">
+                            <div class="day-card-head">
+                                {{ date.strftime('%m/%d') }} {{ ['周一', '周二', '周三', '周四', '周五', '周六', '周日'][date.weekday()] }}
+                            </div>
+                            <div class="day-card-body">
+                                {% for time_slot in class_time_slots %}
+                                    {% set free_users = week_free_users[date][time_slot[0]] %}
+                                    <div class="day-row">
+                                        <div class="day-slot">{{ time_slot[0] }}</div>
+                                        <div class="day-row-content">
+                                            <button
+                                                type="button"
+                                                class="count-btn"
+                                                onclick='showUsersModal({{ date.strftime("%Y-%m-%d")|tojson }}, {{ time_slot[0]|tojson }}, {{ free_users|tojson }})'>
+                                                {{ free_users|length }} 人
+                                            </button>
+                                            {% if free_users %}
+                                                <div class="mini-users mobile-mini">
+                                                    {% for user in free_users[:3] %}
+                                                        <span>{{ user }}</span>
+                                                    {% endfor %}
+                                                    {% if free_users|length > 3 %}
+                                                        <span>+{{ free_users|length - 3 }}</span>
+                                                    {% endif %}
+                                                </div>
+                                            {% else %}
+                                                <div class="empty-cell">该节次无空课</div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </article>
                     {% endfor %}
-                </tbody>
-            </table>
-        </div>
-        
-        <!-- 日视图表单 -->
-        {% elif view_mode == 'day' %}
-        <form method="POST">
-            <input type="hidden" name="view_mode" value="day">
-            <div class="form-group">
-                <label for="date">选择日期：</label>
-                <input type="date" id="date" name="date" value="{{ selected_date.strftime('%Y-%m-%d') }}">
-            </div>
-            <button type="submit">查询</button>
-        </form>
-        
-        <!-- 日视图结果 -->
-        <div class="day-view">
-            <h2>{{ selected_date.strftime('%Y年%m月%d日') }} 空课程情况</h2>
-            {% for time_slot in class_time_slots %}
-            <div class="day-slot">
-                <h3>{{ time_slot[0] }} ({{ time_slot[1][0] }}:{{ '%02d' % time_slot[1][1] }} - {{ time_slot[2][0] }}:{{ '%02d' % time_slot[2][1] }})</h3>
-                {% set free_users = day_free_users.get(time_slot[0], []) %}
-                {% if free_users %}
-                <ul class="free-users">
-                    {% for user in free_users %}
-                    <li>{{ user }}</li>
+                </div>
+
+            {% elif view_mode == 'day' %}
+                <form method="POST" class="query-form">
+                    <input type="hidden" name="view_mode" value="day">
+                    <div class="field">
+                        <label for="day_date_picker_btn">选择日期</label>
+                        <div class="field-control picker date-picker" data-picker="date">
+                            <input type="hidden" name="date" value="{{ selected_date.strftime('%Y-%m-%d') }}">
+                            <button type="button" class="picker-trigger" id="day_date_picker_btn">
+                                <span class="control-icon" aria-hidden="true">DT</span>
+                                <span class="picker-value">{{ selected_date.strftime('%Y/%m/%d') }}</span>
+                                <span class="picker-arrow" aria-hidden="true"></span>
+                            </button>
+                            <div class="picker-panel date-panel">
+                                <div class="date-head">
+                                    <button type="button" class="date-nav" data-action="prev-month" aria-label="上个月">&#x2039;</button>
+                                    <div class="date-title" data-month-label></div>
+                                    <button type="button" class="date-nav" data-action="next-month" aria-label="下个月">&#x203A;</button>
+                                </div>
+                                <div class="date-weekdays">
+                                    <span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span>
+                                </div>
+                                <div class="date-grid" data-date-grid></div>
+                                <div class="date-actions">
+                                    <button type="button" class="date-action-btn" data-action="today">今天</button>
+                                    <button type="button" class="date-action-btn" data-action="this-week">本周一</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="submit-wrap">
+                        <button type="submit" class="submit-btn">查询日视图</button>
+                    </div>
+                </form>
+
+                <h2 class="section-title">{{ selected_date.strftime('%Y年%m月%d日') }} 空课详情</h2>
+                <div class="cards">
+                    {% for time_slot in class_time_slots %}
+                        {% set free_users = day_free_users.get(time_slot[0], []) %}
+                        <article class="slot-card">
+                            <h3>{{ time_slot[0] }} ({{ time_slot[1][0] }}:{{ '%02d' % time_slot[1][1] }} - {{ time_slot[2][0] }}:{{ '%02d' % time_slot[2][1] }})</h3>
+                            {% if free_users %}
+                                <ul class="users">
+                                    {% for user in free_users %}
+                                        <li>{{ user }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% else %}
+                                <p class="empty-tip">该时间段没有空课程人员</p>
+                            {% endif %}
+                        </article>
                     {% endfor %}
-                </ul>
-                {% else %}
-                <p>该时间段没有空课程的人员</p>
-                {% endif %}
-            </div>
-            {% endfor %}
-        </div>
-        
-        <!-- 特定查询表单 -->
-        {% else %}
-        <form method="POST">
-            <input type="hidden" name="view_mode" value="specific">
-            <div class="form-group">
-                <label for="date">选择日期：</label>
-                <input type="date" id="date" name="date" value="{{ selected_date.strftime('%Y-%m-%d') }}">
-            </div>
-            <div class="form-group">
-                <label for="time_slot">选择时间段：</label>
-                <select id="time_slot" name="time_slot">
-                    {% for slot in class_time_slots %}
-                    <option value="{{ loop.index0 }}" {% if slot == selected_time_slot %}selected{% endif %}>
-                        {{ slot[0] }} ({{ slot[1][0] }}:{{ '%02d' % slot[1][1] }} - {{ slot[2][0] }}:{{ '%02d' % slot[2][1] }})
-                    </option>
-                    {% endfor %}
-                </select>
-            </div>
-            <button type="submit">查询</button>
-        </form>
-        
-        <!-- 特定查询结果 -->
-        <div class="result">
-            <div class="time-slot-info">
-                <strong>查询结果：</strong>{{ selected_date.strftime('%Y年%m月%d日') }} {{ selected_time_slot[0] }}
-            </div>
-            <h2>空课程人员：</h2>
-            {% if specific_free_users %}
-            <ul class="free-users">
-                {% for user in specific_free_users %}
-                <li>{{ user }}</li>
-                {% endfor %}
-            </ul>
+                </div>
+
+            {% elif view_mode == 'specific' %}
+                <form method="POST" class="query-form">
+                    <input type="hidden" name="view_mode" value="specific">
+                    <div class="field">
+                        <label for="specific_date_picker_btn">选择日期</label>
+                        <div class="field-control picker date-picker" data-picker="date">
+                            <input type="hidden" name="date" value="{{ selected_date.strftime('%Y-%m-%d') }}">
+                            <button type="button" class="picker-trigger" id="specific_date_picker_btn">
+                                <span class="control-icon" aria-hidden="true">DT</span>
+                                <span class="picker-value">{{ selected_date.strftime('%Y/%m/%d') }}</span>
+                                <span class="picker-arrow" aria-hidden="true"></span>
+                            </button>
+                            <div class="picker-panel date-panel">
+                                <div class="date-head">
+                                    <button type="button" class="date-nav" data-action="prev-month" aria-label="上个月">&#x2039;</button>
+                                    <div class="date-title" data-month-label></div>
+                                    <button type="button" class="date-nav" data-action="next-month" aria-label="下个月">&#x203A;</button>
+                                </div>
+                                <div class="date-weekdays">
+                                    <span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span>
+                                </div>
+                                <div class="date-grid" data-date-grid></div>
+                                <div class="date-actions">
+                                    <button type="button" class="date-action-btn" data-action="today">今天</button>
+                                    <button type="button" class="date-action-btn" data-action="this-week">本周一</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="specific_start_slot_picker_btn">起始节次</label>
+                        <div class="field-control picker option-picker" data-picker="specific-start-slot">
+                            <input type="hidden" name="specific_start_slot" value="{{ selected_specific_start_slot_index }}">
+                            <button type="button" class="picker-trigger" id="specific_start_slot_picker_btn">
+                                <span class="control-icon" aria-hidden="true">TM</span>
+                                <span class="picker-value">
+                                    {{ class_time_slots[selected_specific_start_slot_index][0] }}
+                                    ({{ class_time_slots[selected_specific_start_slot_index][1][0] }}:{{ '%02d' % class_time_slots[selected_specific_start_slot_index][1][1] }} - {{ class_time_slots[selected_specific_start_slot_index][2][0] }}:{{ '%02d' % class_time_slots[selected_specific_start_slot_index][2][1] }})
+                                </span>
+                                <span class="picker-arrow" aria-hidden="true"></span>
+                            </button>
+                            <div class="picker-panel">
+                                <div class="picker-options">
+                                    {% for slot in class_time_slots %}
+                                        <button
+                                            type="button"
+                                            class="picker-option {% if loop.index0 == selected_specific_start_slot_index %}active{% endif %}"
+                                            data-value="{{ loop.index0 }}"
+                                            data-label="{{ slot[0] }} ({{ slot[1][0] }}:{{ '%02d' % slot[1][1] }} - {{ slot[2][0] }}:{{ '%02d' % slot[2][1] }})">
+                                            {{ slot[0] }} ({{ slot[1][0] }}:{{ '%02d' % slot[1][1] }} - {{ slot[2][0] }}:{{ '%02d' % slot[2][1] }})
+                                        </button>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="specific_end_slot_picker_btn">结束节次</label>
+                        <div class="field-control picker option-picker" data-picker="specific-end-slot">
+                            <input type="hidden" name="specific_end_slot" value="{{ selected_specific_end_slot_index }}">
+                            <button type="button" class="picker-trigger" id="specific_end_slot_picker_btn">
+                                <span class="control-icon" aria-hidden="true">TM</span>
+                                <span class="picker-value">
+                                    {{ class_time_slots[selected_specific_end_slot_index][0] }}
+                                    ({{ class_time_slots[selected_specific_end_slot_index][1][0] }}:{{ '%02d' % class_time_slots[selected_specific_end_slot_index][1][1] }} - {{ class_time_slots[selected_specific_end_slot_index][2][0] }}:{{ '%02d' % class_time_slots[selected_specific_end_slot_index][2][1] }})
+                                </span>
+                                <span class="picker-arrow" aria-hidden="true"></span>
+                            </button>
+                            <div class="picker-panel">
+                                <div class="picker-options">
+                                    {% for slot in class_time_slots %}
+                                        <button
+                                            type="button"
+                                            class="picker-option {% if loop.index0 == selected_specific_end_slot_index %}active{% endif %}"
+                                            data-value="{{ loop.index0 }}"
+                                            data-label="{{ slot[0] }} ({{ slot[1][0] }}:{{ '%02d' % slot[1][1] }} - {{ slot[2][0] }}:{{ '%02d' % slot[2][1] }})">
+                                            {{ slot[0] }} ({{ slot[1][0] }}:{{ '%02d' % slot[1][1] }} - {{ slot[2][0] }}:{{ '%02d' % slot[2][1] }})
+                                        </button>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="submit-wrap">
+                        <button type="submit" class="submit-btn">执行区间查询</button>
+                    </div>
+                </form>
+
+                <div class="result-box">
+                    <p class="hint">查询结果：{{ selected_date.strftime('%Y年%m月%d日') }} {{ selected_specific_slot_label }} 均无课</p>
+                    {% if specific_free_users %}
+                        <ul class="users">
+                            {% for user in specific_free_users %}
+                                <li>{{ user }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p class="empty-tip">该时间段没有空课程人员</p>
+                    {% endif %}
+                </div>
+
             {% else %}
-            <p>该时间段没有空课程的人员</p>
+                <form method="POST" class="query-form">
+                    <input type="hidden" name="view_mode" value="person">
+                    <div class="field">
+                        <label for="person_name_picker_btn">选择成员</label>
+                        <div class="field-control picker option-picker" data-picker="person-name">
+                            <input type="hidden" name="person_name" value="{{ selected_user }}">
+                            <button type="button" class="picker-trigger" id="person_name_picker_btn">
+                                <span class="control-icon" aria-hidden="true">USR</span>
+                                <span class="picker-value">{{ selected_user if selected_user else '暂无成员数据' }}</span>
+                                <span class="picker-arrow" aria-hidden="true"></span>
+                            </button>
+                            <div class="picker-panel">
+                                <div class="picker-search-wrap">
+                                    <input type="search" class="picker-search" placeholder="搜索成员姓名..." autocomplete="off">
+                                </div>
+                                <div class="picker-options">
+                                    {% if user_names %}
+                                        {% for name in user_names %}
+                                            <button
+                                                type="button"
+                                                class="picker-option {% if name == selected_user %}active{% endif %}"
+                                                data-value="{{ name }}"
+                                                data-label="{{ name }}">
+                                                {{ name }}
+                                            </button>
+                                        {% endfor %}
+                                    {% else %}
+                                        <button type="button" class="picker-option" disabled>暂无可查询成员</button>
+                                    {% endif %}
+                                </div>
+                                <div class="picker-empty">未找到匹配成员</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="person_week_picker_btn">选择周数</label>
+                        <div class="field-control picker option-picker" data-picker="person-week">
+                            <input type="hidden" name="person_week" value="{{ selected_person_week }}">
+                            <button type="button" class="picker-trigger" id="person_week_picker_btn">
+                                <span class="control-icon" aria-hidden="true">WK</span>
+                                <span class="picker-value">第{{ selected_person_week }}周</span>
+                                <span class="picker-arrow" aria-hidden="true"></span>
+                            </button>
+                            <div class="picker-panel">
+                                <div class="picker-options">
+                                    {% for i in range(1, 21) %}
+                                        <button
+                                            type="button"
+                                            class="picker-option {% if i == selected_person_week %}active{% endif %}"
+                                            data-value="{{ i }}"
+                                            data-label="第{{ i }}周">
+                                            第{{ i }}周
+                                        </button>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="submit-wrap">
+                        <button type="submit" class="submit-btn">查询个人课表</button>
+                    </div>
+                </form>
+
+                <h2 class="section-title">
+                    {% if selected_user %}
+                        {{ selected_user }} 第{{ selected_person_week }}周课程安排
+                    {% else %}
+                        个人课表查询
+                    {% endif %}
+                </h2>
+
+                {% if selected_user %}
+                    <div class="person-week-view">
+                        <table class="person-week-table">
+                            <thead>
+                                <tr>
+                                    <th>时间段</th>
+                                    {% for date in person_week_dates %}
+                                        <th>{{ date.strftime('%m/%d') }}<br>{{ ['周一', '周二', '周三', '周四', '周五', '周六', '周日'][date.weekday()] }}</th>
+                                    {% endfor %}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for time_slot in class_time_slots %}
+                                    <tr>
+                                        <td class="time-slot">{{ time_slot[0] }}</td>
+                                        {% for date in person_week_dates %}
+                                            {% set slot_courses = person_week_courses[date][time_slot[0]] %}
+                                            <td>
+                                                {% if slot_courses %}
+                                                    <ul class="course-tags">
+                                                        {% for course_name in slot_courses %}
+                                                            <li class="course-chip">{{ course_name }}</li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                {% else %}
+                                                    <span class="person-empty-tip">暂无课程</span>
+                                                {% endif %}
+                                            </td>
+                                        {% endfor %}
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="person-week-mobile">
+                        {% for date in person_week_dates %}
+                            <article class="day-card">
+                                <div class="day-card-head">
+                                    {{ date.strftime('%m/%d') }} {{ ['周一', '周二', '周三', '周四', '周五', '周六', '周日'][date.weekday()] }}
+                                </div>
+                                <div class="day-card-body">
+                                    {% for time_slot in class_time_slots %}
+                                        {% set slot_courses = person_week_courses[date][time_slot[0]] %}
+                                        <div class="day-row">
+                                            <div class="day-slot">{{ time_slot[0] }}</div>
+                                            <div class="day-row-content">
+                                                {% if slot_courses %}
+                                                    <ul class="course-tags" style="justify-content:flex-start;">
+                                                        {% for course_name in slot_courses %}
+                                                            <li class="course-chip">{{ course_name }}</li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                {% else %}
+                                                    <span class="person-empty-tip">暂无课程</span>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </article>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="result-box">
+                        <p class="empty-tip">当前没有可查询成员，请先在 JSON 转换页面生成 ICS 文件后再试。</p>
+                    </div>
+                {% endif %}
             {% endif %}
+        </section>
+
+        <div class="back-wrap">
+            <a class="back-link" href="{{ url_for('index') }}">返回主页面</a>
         </div>
-        {% endif %}
+    </main>
+
+    <div class="modal-overlay" id="userModalOverlay">
+        <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <div class="modal-head">
+                <h3 id="modalTitle">空课名单</h3>
+                <button type="button" class="modal-close" id="closeModalBtn">关闭</button>
+            </div>
+            <ul class="modal-list" id="modalUserList"></ul>
+        </div>
     </div>
-    
-    <!-- 返回主页面链接 -->
-    <div style="text-align: center; margin-top: 20px;">
-        <a href="{{ url_for('index') }}" style="color: #4CAF50; text-decoration: none; font-size: 16px;">返回主页面</a>
-    </div>
-    
-    <!-- 遮罩层 -->
-    <div class="overlay" id="overlay"></div>
-    
+
     <script>
-        function toggleFullList(element, date, timeSlot) {
-            // 找到对应的完整列表
-            const cellContent = element.closest ? element.closest('.cell-content') : element.parentElement;
-            const fullList = cellContent.querySelector('.full-list');
-            
-            // 显示遮罩层和弹出框
-            const overlay = document.getElementById('overlay');
-            overlay.classList.add('show');
-            fullList.classList.add('show');
-        }
-        
-        function toggleFullListByCell(element) {
-            // 找到对应的完整列表
-            const cellContent = element.closest('.cell-content');
-            const fullList = cellContent.querySelector('.full-list');
-            
-            // 显示遮罩层和弹出框
-            const overlay = document.getElementById('overlay');
-            overlay.classList.add('show');
-            fullList.classList.add('show');
-        }
-        
-        function closeFullList() {
-            // 隐藏所有弹出框和遮罩层
-            const allLists = document.querySelectorAll('.full-list');
-            allLists.forEach(list => {
-                list.classList.remove('show');
-            });
-            
-            const overlay = document.getElementById('overlay');
-            overlay.classList.remove('show');
-        }
-        
-        // 点击遮罩层时关闭弹出框
-        document.getElementById('overlay').addEventListener('click', closeFullList);
-        
-        // 按ESC键关闭弹出框
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeFullList();
+        (function () {
+            const overlay = document.getElementById("userModalOverlay");
+            const closeBtn = document.getElementById("closeModalBtn");
+            const modalTitle = document.getElementById("modalTitle");
+            const modalUserList = document.getElementById("modalUserList");
+
+            window.showUsersModal = function (dateText, slotText, users) {
+                modalTitle.textContent = `${dateText} ${slotText} 空课名单`;
+                modalUserList.innerHTML = "";
+
+                if (!users || users.length === 0) {
+                    const li = document.createElement("li");
+                    li.textContent = "该时段暂无空课人员";
+                    modalUserList.appendChild(li);
+                } else {
+                    users.forEach((name) => {
+                        const li = document.createElement("li");
+                        li.textContent = name;
+                        modalUserList.appendChild(li);
+                    });
+                }
+
+                overlay.classList.add("show");
+            };
+
+            function closeModal() {
+                overlay.classList.remove("show");
             }
-        });
+
+            closeBtn.addEventListener("click", closeModal);
+            overlay.addEventListener("click", function (e) {
+                if (e.target === overlay) {
+                    closeModal();
+                }
+            });
+
+            function pad2(num) {
+                return String(num).padStart(2, "0");
+            }
+
+            function formatIsoDate(dateObj) {
+                return `${dateObj.getFullYear()}-${pad2(dateObj.getMonth() + 1)}-${pad2(dateObj.getDate())}`;
+            }
+
+            function formatDisplayDate(dateObj) {
+                return `${dateObj.getFullYear()}/${pad2(dateObj.getMonth() + 1)}/${pad2(dateObj.getDate())}`;
+            }
+
+            function parseIsoDate(dateText) {
+                if (!dateText) {
+                    return null;
+                }
+                const match = dateText.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+                if (!match) {
+                    return null;
+                }
+                const year = Number(match[1]);
+                const month = Number(match[2]) - 1;
+                const day = Number(match[3]);
+                const dt = new Date(year, month, day);
+                if (Number.isNaN(dt.getTime())) {
+                    return null;
+                }
+                return dt;
+            }
+
+            function closeAllPickers(exceptPicker) {
+                document.querySelectorAll(".picker.open").forEach(function (picker) {
+                    if (picker !== exceptPicker) {
+                        picker.classList.remove("open");
+                    }
+                });
+            }
+
+            function initOptionPicker(picker) {
+                const hiddenInput = picker.querySelector('input[type="hidden"]');
+                const trigger = picker.querySelector(".picker-trigger");
+                const valueNode = picker.querySelector(".picker-value");
+                const optionButtons = Array.from(picker.querySelectorAll(".picker-option"));
+                const enabledOptions = optionButtons.filter(function (btn) {
+                    return !btn.disabled;
+                });
+                const searchInput = picker.querySelector(".picker-search");
+                const emptyNode = picker.querySelector(".picker-empty");
+
+                function setActiveOption(optionButton) {
+                    if (!optionButton || optionButton.disabled) {
+                        return;
+                    }
+                    optionButtons.forEach(function (btn) {
+                        btn.classList.toggle("active", btn === optionButton);
+                    });
+                    hiddenInput.value = optionButton.dataset.value || "";
+                    valueNode.textContent = optionButton.dataset.label || optionButton.textContent.trim();
+                }
+
+                function applyFilter(keyword) {
+                    if (!searchInput) {
+                        return;
+                    }
+                    const needle = (keyword || "").trim().toLowerCase();
+                    let visibleCount = 0;
+
+                    enabledOptions.forEach(function (btn) {
+                        const label = (btn.dataset.label || btn.textContent || "").toLowerCase();
+                        const matched = !needle || label.includes(needle);
+                        btn.style.display = matched ? "" : "none";
+                        if (matched) {
+                            visibleCount += 1;
+                        }
+                    });
+
+                    if (emptyNode) {
+                        emptyNode.classList.toggle("show", visibleCount === 0);
+                    }
+                }
+
+                const initialActive = enabledOptions.find(function (btn) {
+                    return btn.dataset.value === hiddenInput.value;
+                }) || enabledOptions.find(function (btn) {
+                    return btn.classList.contains("active");
+                }) || enabledOptions[0];
+
+                setActiveOption(initialActive);
+                applyFilter("");
+
+                trigger.addEventListener("click", function () {
+                    const willOpen = !picker.classList.contains("open");
+                    closeAllPickers(picker);
+                    picker.classList.toggle("open", willOpen);
+                    if (willOpen && searchInput) {
+                        window.setTimeout(function () {
+                            searchInput.focus();
+                        }, 0);
+                    }
+                });
+
+                optionButtons.forEach(function (btn) {
+                    if (btn.disabled) {
+                        return;
+                    }
+                    btn.addEventListener("click", function () {
+                        setActiveOption(btn);
+                        if (searchInput) {
+                            searchInput.value = "";
+                            applyFilter("");
+                        }
+                        picker.classList.remove("open");
+                    });
+                });
+
+                if (searchInput) {
+                    searchInput.addEventListener("input", function () {
+                        applyFilter(searchInput.value);
+                    });
+                }
+            }
+
+            function initDatePicker(picker) {
+                const hiddenInput = picker.querySelector('input[type="hidden"]');
+                const trigger = picker.querySelector(".picker-trigger");
+                const valueNode = picker.querySelector(".picker-value");
+                const monthLabel = picker.querySelector("[data-month-label]");
+                const grid = picker.querySelector("[data-date-grid]");
+                const panel = picker.querySelector(".date-panel");
+
+                let selectedDate = parseIsoDate(hiddenInput.value) || new Date();
+                let viewYear = selectedDate.getFullYear();
+                let viewMonth = selectedDate.getMonth();
+
+                function renderCalendar() {
+                    const monthNames = ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"];
+                    monthLabel.textContent = `${viewYear}年 ${monthNames[viewMonth]}`;
+
+                    const firstDay = new Date(viewYear, viewMonth, 1);
+                    const startOffset = (firstDay.getDay() + 6) % 7;
+                    const gridStart = new Date(viewYear, viewMonth, 1 - startOffset);
+                    const todayIso = formatIsoDate(new Date());
+                    const selectedIso = formatIsoDate(selectedDate);
+
+                    let html = "";
+                    for (let i = 0; i < 42; i += 1) {
+                        const current = new Date(gridStart.getFullYear(), gridStart.getMonth(), gridStart.getDate() + i);
+                        const iso = formatIsoDate(current);
+                        const isMuted = current.getMonth() !== viewMonth;
+                        const classes = ["date-cell"];
+                        if (isMuted) {
+                            classes.push("muted");
+                        }
+                        if (iso === todayIso) {
+                            classes.push("today");
+                        }
+                        if (iso === selectedIso) {
+                            classes.push("active");
+                        }
+                        html += `<button type="button" class="${classes.join(" ")}" data-date="${iso}">${current.getDate()}</button>`;
+                    }
+
+                    grid.innerHTML = html;
+                    hiddenInput.value = selectedIso;
+                    valueNode.textContent = formatDisplayDate(selectedDate);
+                }
+
+                function pickDate(dateObj, closeAfterSelect) {
+                    selectedDate = new Date(dateObj.getFullYear(), dateObj.getMonth(), dateObj.getDate());
+                    viewYear = selectedDate.getFullYear();
+                    viewMonth = selectedDate.getMonth();
+                    renderCalendar();
+                    if (closeAfterSelect) {
+                        picker.classList.remove("open");
+                    }
+                }
+
+                trigger.addEventListener("click", function () {
+                    const willOpen = !picker.classList.contains("open");
+                    closeAllPickers(picker);
+                    picker.classList.toggle("open", willOpen);
+                });
+
+                panel.addEventListener("click", function (event) {
+                    const targetBtn = event.target.closest("button");
+                    if (!targetBtn) {
+                        return;
+                    }
+
+                    const action = targetBtn.dataset.action;
+                    if (action === "prev-month") {
+                        if (viewMonth === 0) {
+                            viewMonth = 11;
+                            viewYear -= 1;
+                        } else {
+                            viewMonth -= 1;
+                        }
+                        renderCalendar();
+                        return;
+                    }
+
+                    if (action === "next-month") {
+                        if (viewMonth === 11) {
+                            viewMonth = 0;
+                            viewYear += 1;
+                        } else {
+                            viewMonth += 1;
+                        }
+                        renderCalendar();
+                        return;
+                    }
+
+                    if (action === "today") {
+                        pickDate(new Date(), true);
+                        return;
+                    }
+
+                    if (action === "this-week") {
+                        const today = new Date();
+                        const weekday = (today.getDay() + 6) % 7;
+                        const monday = new Date(today.getFullYear(), today.getMonth(), today.getDate() - weekday);
+                        pickDate(monday, true);
+                        return;
+                    }
+
+                    if (targetBtn.dataset.date) {
+                        const picked = parseIsoDate(targetBtn.dataset.date);
+                        if (picked) {
+                            pickDate(picked, true);
+                        }
+                    }
+                });
+
+                renderCalendar();
+            }
+
+            document.querySelectorAll(".option-picker").forEach(initOptionPicker);
+            document.querySelectorAll(".date-picker").forEach(initDatePicker);
+
+            document.addEventListener("click", function (e) {
+                if (!e.target.closest(".picker")) {
+                    closeAllPickers(null);
+                }
+            });
+
+            document.addEventListener("keydown", function (e) {
+                if (e.key === "Escape") {
+                    closeModal();
+                    closeAllPickers(null);
+                }
+            });
+
+            window.addEventListener("resize", function () {
+                closeAllPickers(null);
+            });
+        })();
     </script>
 </body>
 </html>
