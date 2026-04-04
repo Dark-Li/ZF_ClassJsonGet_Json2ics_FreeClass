@@ -6,8 +6,8 @@ from config import SEMESTER_START_DATE
 
 # ==== 参数设置 ====
 START_DATE = SEMESTER_START_DATE  # 第1周周一
-PERSON_NAME = "郑佳琦"
-ICS_FILE = "ics_output/郑佳琦.ics"
+PERSON_NAME = "测试"  # 测试用姓名
+ICS_FILE = "ics_output/测试.ics"
 OUTPUT_FILE = "空课统计表_单人测试.xlsx"
 
 # 节次时间段（起始、结束）
