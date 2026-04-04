@@ -147,11 +147,11 @@ BASE_URL = 'https://jxw.sylu.edu.cn'  # 教务系统URL
 如果需要修改学期开始日期，只需要修改 `config.py` 文件中的日期即可。
 
 由于每个学校的单节课时长不同，还需要根据自己学校对以下文件中的时间进行修改
-1.`app.py` 中的 `SESSION_TIMES` 和 `CLASS_TIME_SLOTS` 进行修改
-2.`course_json_out.py` 中的 `RASPIANIE`
-3.`json2ics.py` 中的 `session_times`
-4.`ZF_ClassWebView.py` 中的 `CLASS_TIME_SLOTS`
-5.`zfn_api.py` 中的 `CLASS_TIME_SLOTS`
+1. `app.py` 中的 `SESSION_TIMES` 和 `CLASS_TIME_SLOTS` 进行修改
+2. `course_json_out.py` 中的 `RASPIANIE`
+3. `json2ics.py` 中的 `session_times`
+4. `ZF_ClassWebView.py` 中的 `CLASS_TIME_SLOTS`
+5. `zfn_api.py` 中的 `CLASS_TIME_SLOTS`
 
 PS：下个版本将会优化该参数 TAT
 
